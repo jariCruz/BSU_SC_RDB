@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
     
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/imagebg.css">
-    <link rel="stylesheet" href="../css/fontfamily.css">
+    <link rel="stylesheet" href="css/imagebg.css">
+    <link rel="stylesheet" href="css/fontfamily.css">
     
   </head>
 <body>
