@@ -110,7 +110,7 @@
             
 
             <div class="custom-file form-group">
-                    <label class="mt-n1">Identification card:</label>
+                    <label for="form_file">Identification card:</label>
                     
                     <input type="file"
                             name="form_file"
@@ -119,6 +119,8 @@
                             required>
                             <label for="form_file" class="custom-file-label mt-4">Choose file...</label>
 
+                    <!-- Script for adding the name of file to the label -->
+                    
                     <script>
                         $('#form_file').on('change', function(e){
                             // Get file name
@@ -132,8 +134,8 @@
                     </script>
 
                 <!-- Notification -->
-                <div class="valid-feedback mt-n1">Valid~</div>
-                <div class="invalid-feedback mt-n1">Fill in this part, please~</div>
+                <div class="valid-feedback">Valid~</div>
+                <div class="invalid-feedback">Fill in this part, please~</div>
                 
             </div>
 
@@ -203,27 +205,29 @@
         </form>
     </div>
 
-    <script>
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-         
-          event.preventDefault();
-          event.stopPropagation();
-        }   
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
+<!-- Script for form's validation -->
+
+<script>
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                
+                event.preventDefault();
+                event.stopPropagation();
+                }   
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+    })();
 </script>
 
 
