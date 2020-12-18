@@ -1,3 +1,5 @@
+/* Index.php */
+
 /* Change font size and family */
 body {
     font-family: Poppins, sans-serif;
@@ -31,5 +33,14 @@ h1 {
 /* Social logo */
 .sl {
   font-size: larger;
+
+}
+
+
+/* Registration page */
+/* Custom margin for the form */
+
+.reg-form-custom-width {
+  width: 50%;
 
 }

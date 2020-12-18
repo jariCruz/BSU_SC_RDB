@@ -150,35 +150,35 @@
 
 <footer class="border-top-2 pb-4">
 
-<div class="container">
-  <div class="row">
-    <div class="col-8 ft">
-      <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
-        We use cookies to help provide and enhance our service and tailor content.<br>
-        By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 ft">
+        <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
+          We use cookies to help provide and enhance our service and tailor content.<br>
+          By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
 
-      <div style="margin-top: -4%;">
-        <a href="#">Copyright</a>
-        <span class="px-3">|</span>
+        <div style="margin-top: -4%;">
+          <a href="#">Copyright</a>
+          <span class="px-3">|</span>
 
-        <a href="#">Terms of Use</a>
-        <span class="px-3">|</span>
-        
-        <a href="#">Privacy Policy</a>
-        
+          <a href="#">Terms of Use</a>
+          <span class="px-3">|</span>
+          
+          <a href="#">Privacy Policy</a>
+          
+        </div>
       </div>
+
+      <div class="col-4" style="margin-top: -1%">
+        <span>Follow us on:</span><br>
+
+        <span class="fa fa-facebook-official sl"></span>
+        <span class="fa fa-instagram sl px-3"></span>
+        <span class="fa fa-twitter-square sl"></span>
+      </div>
+
     </div>
-
-    <div class="col-4" style="margin-top: -1%">
-      <span>Follow us on:</span><br>
-
-      <span class="fa fa-facebook-official sl"></span>
-      <span class="fa fa-instagram sl px-3"></span>
-      <span class="fa fa-twitter-square sl"></span>
-    </div>
-
   </div>
-</div>
 
 </footer>
 
