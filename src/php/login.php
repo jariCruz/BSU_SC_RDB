@@ -31,7 +31,7 @@
 
 <!-- Form -->
     <div class="container">
-        <h1 class="d-flex justify-content-center">Someone is logging in ...</h1>
+        <h1 class="d-flex justify-content-center">Someone is logging in...</h1>
 
         <form action="../index.php" novalidate
                 class="needs-validation
@@ -87,24 +87,32 @@
 
             
             <!-- Checkbox -->
-            <div class="form-group">
-                <input type="checkbox">
-                <span>Remember me</span>
+            
+            
+                
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </div>
 
-            </div>
+                    <!-- Register btn -->
+                    <div class="col d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                
+                </div>
+                
 
-            <!-- Register btn -->
-            <div>
-                <button type="submit" class="btn btn-primary">Login</button>
-
-            </div>
+                
+            
 
             <div class="d-flex justify-content-center mt-3">
                 <span>Don't have an account yet? <a href="login.php">Register here.</a></span>
             </div>
 
             <!-- just a freakin horizontal line -->            
-            <hr class="bg-dark">
+            <hr class="bg-dark mt-4">
 
             <div class="d-flex justify-content-center">
                 <a href="#">Forgot password? Click here</a>
