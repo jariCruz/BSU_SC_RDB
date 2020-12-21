@@ -1,6 +1,6 @@
 <?php
    $conn=mysqli_connect("localhost", "root", "");
-   mysqli_select_db($conn, "BSUSC_Research_Databank");
+   mysqli_select_db($conn, "bsusc_research_databank");
 
     if ($conn) {
  	echo "";
