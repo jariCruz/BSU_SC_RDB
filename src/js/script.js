@@ -1,6 +1,6 @@
 //Search onkeyup response
-function search(str) {
-  if (str.length==0) {
+function search() {
+  if (document.getElementById('search-input').length==0) {
     document.getElementById("results").innerHTML="";
     document.getElementById("results").style.border="0px";
     return;
@@ -11,7 +11,9 @@ function search(str) {
       document.getElementById("results").innerHTML=this.responseText;
       document.getElementById("results").style.border="1px solid #A5ACB2";
     }
-  }
-  xmlhttp.open("GET","php/action.php?q="+str,true);
+  }                                //V search value
+  var searchInp = document.getElementById('search-input').value;
+  console.log(searchInp);
+  xmlhttp.open("GET","php/action.php?q="+searchInp,true);
   xmlhttp.send();
 }

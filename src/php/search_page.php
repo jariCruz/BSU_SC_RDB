@@ -1,10 +1,23 @@
 <!DOCTYPE html>
+<?php
+include "server.php";
+
+if (isset($_POST['search-button'])) {
+  $search = $_POST['search-input'];
+  $str = "";
+
+  $sql = " SELECT * from test_search where test_fname LIKE '%$search%' OR test_lname LIKE '%$search%' ";
+  $result = mysqli_query($conn, $sql);
+
+  //end if (mysqli_num_rows($result) > 0)
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query | Research DB</title>
-    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -40,7 +53,7 @@
 
         <div>
           <div class="hf">
-            <a class="navbar-brand" href="#">Research DB</a>
+            <a class="navbar-brand" href="../index.php">Research DB</a>
           </div>
 
           <div class="mt-n3">
@@ -105,7 +118,7 @@
                           border-top-0">
               <span>9 Results</span>
             </div>
-  
+
             <h6 class="mt-3">Filter:</h6>
             <input type="checkbox">
             <span>Title</span>
@@ -127,7 +140,7 @@
 
 
         </div>
-        
+
       <!-- Content -->
         <div class="col-sm-6">
 
@@ -151,7 +164,7 @@
               </div>
 
             </div>
-            
+
           </div>
 
           <!-- Here is the whole research study
@@ -159,110 +172,115 @@
                   (titles, authors, abstract, view pdf, download file,
                   and statistics for reads and downloads)-->
 
-          <div class="cards hBg
-                        border border-left-0
-                               border-right-0
-                               border-secondary">
-            
-            <div class="card-body pt-3 pl-5">
+          <?php if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+              echo '<div class="cards hBg
+                            border border-left-0
+                                   border-right-0
+                                   border-secondary">
 
-              
-
-              <div class="row">
-                <div class="col-sm-10 pr-5">
-                  <h4 class="cfont cs-2">Lorem Title</h4>            
-
-                  <a href="#" class="cLink">Author</a>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, blanditiis fugiat nisi officia praesentium delectus id consequatur provident dolores architecto minima at ducimus corporis eaque reprehenderit. Veniam quo dolores ad!</p>
-                  
-                  
-                  <a href="#" class="fa fa-download cLink"> Download</a>
-
-                  <a href="#" class="fa fa-file cLink"> View PDF</a>
+                <div class="card-body pt-3 pl-5">
 
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="cModalContent" role="dialog">
-                    <div class="modal-dialog modal-dialog-scrollable">
+                  <!-- Research studies information -->
+                  <div class="row">
+                    <div class="col-sm-10 pr-5">
+                      <h4 class="cfont cs-2">Lorem Title</h4>
 
-                      <!-- Modal header -->
-                      <div class="modal-content">
-                        <div class="modal-title">
+                      <a href="#" class="cLink">Author</a>
+                      <p>'.$row["test_fname"].' '.$row["test_lname"].'</p>
 
-                          <div class="modal-header">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
-                              <button type="button" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                      <a href="#" class="fa fa-download cLink"> Download</a>
+
+                      <a href="#" class="fa fa-file cLink"> View PDF</a>
+
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="cModalContent" role="dialog">
+                        <div class="modal-dialog modal-dialog-scrollable">
+
+                          <!-- Modal header -->
+                          <div class="modal-content">
+                            <div class="modal-title">
+
+                              <div class="modal-header">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
+                                  <button type="button" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+
                             </div>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>                            
+
+                            <!-- Modal details -->
+
+                            <div class="modal-body">
+                              <!-- Make the title color black -->
+                              <!-- Make the hover color blue -->
+
+                              <a href="#" class="cfont cs-2">Lorem Title</a>
+                              <br>
+                              <a href="#">Author</a>
+
+                              <hr class="bg-muted">
+
+                              <p class="text-uppercase">Abstract</p>
+
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                  Numquam fugiat sunt in dolor nobis quos unde quo incidunt alias?
+                                  Repellat quo quos ipsam minima a veniam, eveniet corporis porro aut.
+                              </p>
+
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-danger"
+                                        data-dismiss="modal">Close</button>
+
+                            </div>
+
+
+
+
                           </div>
-
                         </div>
-
-                        <!-- Modal details -->
-
-                        <div class="modal-body">
-                          <!-- Make the title color black -->
-                          <!-- Make the hover color blue -->
-
-                          <a href="#" class="cfont cs-2">Lorem Title</a>
-                          <br>
-                          <a href="#">Author</a>
-
-                          <hr class="bg-muted">
-
-                          <p class="text-uppercase">Abstract</p>
-
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                              Numquam fugiat sunt in dolor nobis quos unde quo incidunt alias?
-                              Repellat quo quos ipsam minima a veniam, eveniet corporis porro aut.
-                          </p>
-
-                        </div>
-
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-danger"
-                                    data-dismiss="modal">Close</button>
-
-                        </div>
-
-
-
-                      
                       </div>
+
+                      <!-- Mini tab for short details
+                      This <a> tag represent the button for the whole research study -->
+
+                      <a href="#cModalContent" class="stretched-link"
+                          data-toggle="modal" data-backdrop="static"></a>
                     </div>
+
+                  <!-- Statistics -->
+
+                  <div class="col-sm-2">
+                    <div class=" pt-2 text-ash">
+                      <p class="text-center smaller">5<br>Readers</p>
+
+                    </div>
+
+                    <div class="pt-2 text-ash">
+                      <p class="text-center smaller">5<br>Downloads</p>
+                    </div>
+
+
                   </div>
 
-                  <!-- Mini tab for short details
-                  This <a> tag represent the button for the whole research study -->
+                </div> <!-- End of research studies information -->
 
-                  <a href="#cModalContent" class="stretched-link"
-                      data-toggle="modal" data-backdrop="static"></a>   
-                </div>
-              
-              <!-- Statistics -->
 
-              <div class="col-sm-2">
-                <div class=" pt-2 text-ash">
-                  <p class="text-center smaller">5<br>Readers</p>
-                  
-                </div>
-
-                <div class="pt-2 text-ash">
-                  <p class="text-center smaller">5<br>Downloads</p>
                 </div>
 
 
-              </div>    
-                                   
-            </div>
-                        
 
-            </div>
-
-
-
-          </div>
+              </div>';
+            }
+          } else {
+            echo "No Results Found";
+          } ?>
 
           <!-- The whole research study details ends here -->
 
@@ -281,15 +299,15 @@
             </ul>
 
           </div>
-          
+
           <!-- div for Content -->
         </div>
-        
+
       <!-- div for row -->
     </div>
 
     <!-- div for container -->
-</div>    
+</div>
 
 
 <!-- Footer -->
@@ -328,6 +346,8 @@
 
 </footer>
 
+<script src="../js/script.js">
 
+</script>
 </body>
 </html>

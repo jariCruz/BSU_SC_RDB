@@ -98,17 +98,17 @@ include "php/server.php";
         <small style="font-size:larger">Search the knowledge hidden within</small>
 
         <!-- Search form -->
-        <div class="input-group mb-3 mt-4" style="width: 50%;">
-        <!-- Search button -->
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-primary" type="button" style="background-color: transparent;">Search</button>
+        <form action="php/search_page.php" method="post">
+          <div class="input-group mb-3 mt-4" style="width: 50%;">
+          <!-- Search button -->
+            <div class="input-group-prepend">
+              <button name="search-button" class="btn btn-outline-primary" type="submit" style="background-color: transparent;">Search</button>
+            </div>
+            <!-- Search input -->
+            <input type="text" class="form-control" onkeyup="search()" id="search-input" name="search-input" style="background-color: transparent;" placeholder="Search for articles...">
           </div>
-          <!-- Search input -->
-          <input type="text" class="form-control" onkeyup="search(this.value)" style="background-color: transparent;" placeholder="Search for articles...">
-        </div>
-        <div id="results">
-          <!-- Search results -->
-        </div>
+        </form>
+        <div id="results"><!-- Search results --></div>
 
 
         <!-- Most search keywords -->

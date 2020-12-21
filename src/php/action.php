@@ -1,21 +1,23 @@
 <?php
 include "server.php";
-
+//live search
 if (isset($_GET['q'])) {
-  $token = $_GET['q'];// q is from search(this.value)
+  $search = $_GET['q'];// q is from search(this.value)
   $str = "";
 
-  $sql = " SELECT * from test_search where test_fname LIKE '%$token%' OR test_lname LIKE '%$token%' ";
+  $sql = " SELECT * from test_search where test_fname LIKE '%$search%' OR test_lname LIKE '%$search%' ";
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
 
-      echo '<div class="list-group">' . $row["test_fname"] . " " . $row["test_lname"] . '</div>';
+      $str.='<a class="list-group" href="php/search_page.php">' . $row["test_fname"] . " " . $row["test_lname"] . '</a>';
     }
+    echo $str;
   }
   //end if (mysqli_num_rows($result) > 0)
   else {
-    echo "No Results Found";
+    $str="No Results Found";
+    echo $str;
   }
-}//if(isset($_GET['q'])
+}//end of live search
