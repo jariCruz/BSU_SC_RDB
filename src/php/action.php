@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "user";
-$password = "password";
-$db = "BSUSC_Research_Databank";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include "server.php";
 
 if (isset($_GET['q'])) {
   $token = $_GET['q'];// q is from search(this.value)
