@@ -1,5 +1,5 @@
 <?php
-include "server.php";
+include "php/server.php";
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ include "server.php";
 
         <!-- Search form -->
         <div class="input-group mb-3 mt-4" style="width: 50%;">
-        <!-- Search button --> 
+        <!-- Search button -->
           <div class="input-group-prepend">
             <button class="btn btn-outline-primary" type="button" style="background-color: transparent;">Search</button>
           </div>
