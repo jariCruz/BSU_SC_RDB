@@ -178,7 +178,7 @@
                   
                   <a href="#" class="fa fa-download cLink"> Download</a>
 
-                  <a href="#" class="fa fa-file cLink"> View PDF</a>
+                  <a href="view_pdf_page.php" class="fa fa-file cLink" target="_blank"> View PDF</a>
 
 
                   <!-- Modal -->
@@ -192,7 +192,7 @@
                           <div class="modal-header">
                             <div class="btn-group">
                               <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
-                              <button type="button" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                              <a href="view_pdf_page.php" class="btn btn-outline-dark fa fa-file" target="_blank"> View PDF</a>
                             </div>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>                            
                           </div>
