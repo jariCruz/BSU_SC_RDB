@@ -190,15 +190,7 @@ button:hover {
                         <div class="valid-feedback">Valid~</div>
                         <div class="invalid-feedback">Choose year level, please~</div>
 
-                        <script>
-                            $('.dropdown-menu').on('change', function(){
-                                var sDept = $(this).find("option: selected").text();
-
-                                $('#form-department').html(sDept);
-                                $(this).next('.#form-department').html(sDept);
-
-                            });
-                        </script>
+               
 
                     </div>
 
@@ -227,16 +219,6 @@ button:hover {
                         <!-- Notification -->
                         <div class="valid-feedback">Valid~</div>
                         <div class="invalid-feedback">Choose course, please~</div>
-
-                        <script>
-                            $('.dropdown-menu').on('change', function(){
-                                var sDept = $(this).find("option: selected").text();
-
-                                $('#form-department').html(sDept);
-                                $(this).next('.#form-department').html(sDept);
-
-                            });
-                        </script>
 
                     </div>
 
