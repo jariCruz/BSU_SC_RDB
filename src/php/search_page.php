@@ -90,17 +90,19 @@ if (isset($_POST['search-button'])) {
                 border border-primary
                     border-left-0
                     border-right-0">
-    <div class="input-group d-flex justify-content-center">
+                    <form action="search_page.php" method="post">
+                      <div class="input-group d-flex justify-content-center">
 
-        <div class="input-group-prepend py-sm-4 cSearch-width">
-            <button class="btn btn-outline-primary" type="button">Search</button>
-            <input class="form-control"  type="text">
-            <button type="button" class="btn btn-default btn-sm">
-                <span class="fa fa-remove"></span>
-            </button>
-        </div>
+                          <div class="input-group-prepend py-sm-4 cSearch-width">
+                              <button name="search-button" id="search-button" class="btn btn-outline-primary" type="submit">Search</button>
+                              <input name="search-input" id="search-input" class="form-control"  type="text">
+                              <button type="button" class="btn btn-default btn-sm">
+                                  <span class="fa fa-remove"></span>
+                              </button>
+                          </div>
 
-    </div>
+                      </div>
+                    </form>
 </div>
 
 
@@ -346,7 +348,7 @@ if (isset($_POST['search-button'])) {
 
 </footer>
 
-<script src="../js/script.js">
+<script src="../js/index.js">
 
 </script>
 </body>
