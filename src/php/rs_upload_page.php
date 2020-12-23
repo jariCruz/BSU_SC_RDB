@@ -142,7 +142,7 @@
                         <div class="valid-feedback">Valid~</div>
                         <div class="invalid-feedback">Choose year level, please~</div>
 
-               
+
 
                     </div>
 
@@ -296,7 +296,7 @@
                 <div style="float: right">
 
                     <button class="btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1); submitValues()">Next</button>
                 </div>
             </div>
 
@@ -311,6 +311,9 @@
 
 
         </form>
+    </div>
+    <div id="showResults">
+
     </div>
 
 <!-- Script for form's validation -->
