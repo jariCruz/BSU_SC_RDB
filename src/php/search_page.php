@@ -47,40 +47,54 @@ if (isset($_POST['search-button'])) {
 <!-- navigator -->
 
 <div class="sticky-top">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
 
-      <div class="container-fluid">
+<div class="container-fluid">
 
-        <div>
-          <div class="hf">
-            <a class="navbar-brand" href="../index.php">Research DB</a>
-          </div>
+  <div>
+    <div class="hf">
+      <a class="navbar-brand" href="#">Research DB</a>
+    </div>
 
-          <div class="mt-n3">
-            <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
-          </div>
-        </div>
+    <div class="mt-n3">
+      <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+    </div>
+  </div>
 
-        <ul class="navbar-nav ml-auto">
+  <button class="navbar-toggler" type="button"
+          data-toggle="collapse" data-target="#collapseNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+  <div class="collapse navbar-collapse" id="collapseNavbar">
+    <ul class="navbar-nav ml-auto">
 
-          </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+
+      </li>
 
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
 
-          </li>
+      </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
 
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+
+
+
+</div>
+</nav>
 </div>
 
 <!-- Search bar -->

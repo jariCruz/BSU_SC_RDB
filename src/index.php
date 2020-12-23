@@ -57,29 +57,32 @@ include "php/server.php";
             </div>
           </div>
 
-          <!-- Insert this below the research data bank link
-        <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
-        -->
+          <button class="navbar-toggler" type="button"
+                  data-toggle="collapse" data-target="#collapseNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-          <ul class="navbar-nav ml-auto">
+          <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
 
-            </li>
+              </li>
 
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
 
-            </li>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
 
-            </li>
+              </li>
 
-          </ul>
+            </ul>
+          </div>
 
 
 
