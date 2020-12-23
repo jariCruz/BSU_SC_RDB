@@ -194,7 +194,7 @@ include "php/server.php";
   </footer>
 
 
-  <script src="js/script.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
