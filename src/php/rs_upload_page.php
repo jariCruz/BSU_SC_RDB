@@ -36,57 +36,9 @@
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="../css/rs_upload.css">
 
-<style>
-
-/* Mark input boxes that gets an error on validation: */
 
 
-/* insert icons for invalid */
 
-
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
-
-button {
-  background-color: #4CAF50;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-#prevBtn {
-  background-color: #bbbbbb;
-}
-
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #4CAF50;
-}
-
-    </style>
 
 </head>
 <body>
@@ -289,6 +241,7 @@ button:hover {
                             name="form_file"
                             id="form_file"
                             class="custom-file-input form-control"
+                            accept="application/pdf"
                             required>
                     <label for="form_file" class="custom-file-label cmt-1">Choose file...</label>
 
