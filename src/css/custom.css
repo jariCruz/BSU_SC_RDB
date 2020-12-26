@@ -4,7 +4,7 @@
 
 /* Change font size and family */
 body {
-    font-family: Poppins, sans-serif;
+    font-family:'Abril Fatface', serif;
     font-size: 16px;  
   }
   
@@ -38,7 +38,7 @@ h1 {
 /* Header font */
 .hf {
   font-family: 'Abril Fatface', serif;
-  font-size: 20px;  
+  font-size: 20px;
 }
 
 /* Jumbotron */
