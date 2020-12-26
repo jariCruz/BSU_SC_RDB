@@ -130,31 +130,3 @@ function fixStepIndicator(n) {
   // Add the current "active" class on the current step
   x[n].className += " active";
 }
-
-//submit values button
-function submitValues() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showResults").innerHTML = this.responseText;
-    }
-  };
-  var rs_title = document.getElementById('form_title').value;
-  var rs_author = document.getElementById('form_author').value;
-  var rs_year_level = document.getElementById('form_year').value;
-  var rs_course = document.getElementById('form_course').value;
-  var rs_adviser = document.getElementById('form_adviser').value;
-  var rs_keywords = document.getElementById('form_keywords').value;
-  var rs_file = document.getElementById('form_file').value;
-  var rs_abstract = document.getElementById('form_abstract').value;
-  console.log('Title: ',rs_title);
-  console.log('Author: ',rs_author);
-  console.log('Year Level: ',rs_year_level);
-  console.log('Course: ',rs_course);
-  console.log('Adviser: ',rs_adviser);
-  console.log('Keywords: ',rs_keywords);
-  console.log('File: ',rs_file);
-  console.log('Abstract: ',rs_abstract);
-  xhttp.open("POST", "rs_upload_page_function.php?q="+rs_title,rs_author,rs_year_level,rs_course,rs_adviser,rs_keywords,rs_file,rs_abstract,true);
-  xhttp.send();
-}

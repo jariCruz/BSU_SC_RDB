@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include "server.php"; ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,7 @@
     <div class="container">
         <h1 class="d-flex justify-content-center">Coordinator is uploading thesis...</h1>
 
-        <form id="rs_upload_form" action="#" novalidate
+        <form id="rs_upload_form" action="rs_upload_page_function.php" method="post" novalidate
                 class="needs-validation
                         border border-dark rounded-lg
                         p-4 mx-auto mb-3 w-75 reg-form-custom-width">
@@ -296,7 +296,7 @@
                 <div style="float: right">
 
                     <button class="btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1); submitValues()">Next</button>
+                    <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 </div>
             </div>
 
