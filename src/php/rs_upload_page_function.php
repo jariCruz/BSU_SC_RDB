@@ -7,7 +7,7 @@
   $title = $conn -> real_escape_string($_POST['form_title']);
   $abstract = $conn -> real_escape_string($_POST['form_abstract']);
   $author = $conn -> real_escape_string($_POST['form_author']);
-  $file = $conn -> real_escape_string($_FILES['form_file']['tmp_name']);
+  $file = $conn -> real_escape_string(str_replace(' ', '_', $_FILES['form_file']['name']));
   $year = $conn -> real_escape_string($_POST['form_year']);
   $course = $conn -> real_escape_string($_POST['form_course']);
   $keywords = $conn -> real_escape_string($_POST['form_keywords']);
