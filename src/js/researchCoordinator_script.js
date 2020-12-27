@@ -11,10 +11,6 @@ $(document).ready(function(){
 });
 
 
-// Get button
-var btn = document.getElementById("btn");
-
-
 // Menu ends here...
 // For showing tabs
 // Change dropdown text

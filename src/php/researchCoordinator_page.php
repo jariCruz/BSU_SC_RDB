@@ -105,10 +105,10 @@
             </li>
             
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+            <a id="accountBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#student">Student</a>
-                <a class="dropdown-item" href="#professor">Professor</a>
+                <a class="dropdown-item" href="#student" onclick="changeBtnTxt('accountBtn', 'Student')">Student</a>
+                <a class="dropdown-item" href="#professor" onclick="changeBtnTxt('accountBtn', 'Professor')">Professor</a>
             </li>
             
         </ul>
@@ -153,18 +153,18 @@
                     <div class="dropdown dropright ml-3">
                         <button class="btn btn-outline-secondary dropdown-toggle 
                                         mw-btn-150p"
-                                id="accountStatus"
+                                id="studentAccountStatus"
                                 data-toggle="dropdown">Select</button>
-                        
+                                
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Pending')">Pending</a>
+                                onclick="changeBtnTxt('studentAccountStatus', 'Pending')">Pending</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Verified')">Verified</a>
+                                onclick="changeBtnTxt('studentAccountStatus', 'Verified')">Verified</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Denied')">Denied</a>
+                                onclick="changeBtnTxt('studentAccountStatus', 'Denied')">Denied</a>
 
                         </div>
 
@@ -183,14 +183,15 @@
                                 sf-margin-left">
                         <button class="btn btn-outline-secondary dropdown-toggle
                                         mw-btn-150p"
-                                data-toggle="dropdown" id="sortName">Select</button>
+                                id="studentSort"
+                                data-toggle="dropdown">Select</button>
 
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('sortName', 'Ascending')">Ascending</a>
+                                onclick="changeBtnTxt('studentSort', 'Ascending')">Ascending</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('sortName', 'Descending')">Descending</a>
+                                onclick="changeBtnTxt('studentSort', 'Descending')">Descending</a>
 
                         </div>
 
@@ -368,18 +369,18 @@
                     <div class="dropdown dropright ml-3">
                         <button class="btn btn-outline-secondary dropdown-toggle 
                                         mw-btn-150p"
-                                id="accountStatus"
+                                id="professorAccountStatus"
                                 data-toggle="dropdown">Select</button>
                         
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Pending')">Pending</a>
+                                onclick="changeBtnTxt('professorAccountStatus', 'Pending')">Pending</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Verified')">Verified</a>
+                                onclick="changeBtnTxt('professorAccountStatus', 'Verified')">Verified</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('accountStatus', 'Denied')">Denied</a>
+                                onclick="changeBtnTxt('professorAccountStatus', 'Denied')">Denied</a>
 
                         </div>
 
@@ -398,14 +399,15 @@
                                 sf-margin-left">
                         <button class="btn btn-outline-secondary dropdown-toggle
                                         mw-btn-150p"
-                                data-toggle="dropdown" id="sortName">Select</button>
+                                id="professorSort"
+                                data-toggle="dropdown">Select</button>
 
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('sortName', 'Ascending')">Ascending</a>
+                                onclick="changeBtnTxt('professorSort', 'Ascending')">Ascending</a>
 
                             <a class="dropdown-item" href="#"
-                                onclick="changeBtnTxt('sortName', 'Descending')">Descending</a>
+                                onclick="changeBtnTxt('professorSort', 'Descending')">Descending</a>
 
                         </div>
 
