@@ -2,15 +2,6 @@
 <?php
 include "server.php";
 
-if (isset($_POST['search-button'])) {
-  $search = $_POST['search-input'];
-  $str = "";
-
-  $sql = " SELECT * from test_search where test_fname LIKE '%$search%' OR test_lname LIKE '%$search%' ";
-  $result = mysqli_query($conn, $sql);
-
-  //end if (mysqli_num_rows($result) > 0)
-}
 ?>
 <html lang="en">
 <head>
@@ -188,7 +179,17 @@ if (isset($_POST['search-button'])) {
                   (titles, authors, abstract, view pdf, download file,
                   and statistics for reads and downloads)-->
 
-          <?php if (mysqli_num_rows($result) > 0) {
+          <?php
+          if (isset($_POST['search-button'])) {
+            $files = scandir('../Research_Studies/');
+            $search = $_POST['search-input'];
+            $str = "";
+
+            $sql = " SELECT * from researchstudy_table 
+            where Title LIKE '%$search%' OR Keywords LIKE '%$search%' ";
+            $result = mysqli_query($conn, $sql);
+
+           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
               echo '<div class="cards hBg
                             border border-left-0
@@ -201,14 +202,14 @@ if (isset($_POST['search-button'])) {
                   <!-- Research studies information -->
                   <div class="row">
                     <div class="col-sm-10 pr-5">
-                      <h4 class="cfont cs-2">Lorem Title</h4>
+                      <h4 class="cfont cs-2">'.$row["Title"].'</h4>
 
                       <a href="#" class="cLink">Author</a>
-                      <p>'.$row["test_fname"].' '.$row["test_lname"].'</p>
+                      <p>'.$row["Author"].'</p>
 
                       <a href="#" class="fa fa-download cLink"> Download</a>
 
-                      <a href="#" class="fa fa-file cLink"> View PDF</a>
+                      <a href="../Research_Studies/'.$row['File'].'" class="fa fa-file cLink"> View PDF</a>
 
 
                       <!-- Modal -->
@@ -296,7 +297,8 @@ if (isset($_POST['search-button'])) {
             }
           } else {
             echo "No Results Found";
-          } ?>
+          }
+         } ?>
 
           <!-- The whole research study details ends here -->
 
