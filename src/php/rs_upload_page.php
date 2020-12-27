@@ -50,7 +50,7 @@
         <form id="rs_upload_form" action="rs_upload_page_function.php" method="post" novalidate
                 class="needs-validation
                         border border-dark rounded-lg
-                        p-4 mx-auto mb-3 w-75 reg-form-custom-width">
+                        p-4 mx-auto mb-3 w-75 reg-form-custom-width" enctype="multipart/form-data">
 
 
             <!-- Note tab -->
