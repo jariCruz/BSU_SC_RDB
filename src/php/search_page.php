@@ -223,7 +223,9 @@ include "server.php";
                               <div class="modal-header">
                                 <div class="btn-group">
                                   <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
-                                  <button type="button" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                                  <form action="../Research_Studies/'.$row['File'].'" method="post">
+                                  <button type="submit" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                                  </form>
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
@@ -236,17 +238,16 @@ include "server.php";
                               <!-- Make the title color black -->
                               <!-- Make the hover color blue -->
 
-                              <a href="#" class="cfont cs-2">Lorem Title</a>
+                              <div class="cfont cs-2">'.$row['Title'].'</div>
                               <br>
-                              <a href="#">Author</a>
+                              <div>'.$row['Author'].'</div>
 
                               <hr class="bg-muted">
 
                               <p class="text-uppercase">Abstract</p>
 
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                  Numquam fugiat sunt in dolor nobis quos unde quo incidunt alias?
-                                  Repellat quo quos ipsam minima a veniam, eveniet corporis porro aut.
+                              <p>
+                              '.$row['Abstract'].'
                               </p>
 
                             </div>
