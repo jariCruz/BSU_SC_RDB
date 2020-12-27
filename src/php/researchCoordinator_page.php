@@ -91,32 +91,27 @@
 
 </div>
 
+<!-- contains nav-tab and tab-content -->
 <div class="container-fluid">
     <div class="pt-3">
 
-         <!-- Nav tabs -->
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#overview" onclick="removeActive()">Overview</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#researchStudy" onclick="removeActive()">Research Study</a>
-    </li>
-    
-    <div class="dropdown">
-        <button class="dropbtn" id="btn">Account <span class="fa fa-caret-down"></span></button>
-
-        <div class="dropdown-content" id="menu">
-
-            <a class="dropdown-item nav-link"
-                href="#student" onclick="fixDropdown('Student')">Student</a>
-
-            <a class="dropdown-item nav-link"
-                href="#professor" onclick="fixDropdown('Professor')">Professor</a>
-        </div>
-    </div>
-    
-  </ul>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <a class="nav-link active" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#researchStudy">Research Study</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#student">Student</a>
+                <a class="dropdown-item" href="#professor">Professor</a>
+            </li>
+            
+        </ul>
 
     
         
@@ -324,6 +319,23 @@
 
                         </div>
 
+
+                        <!-- Pagination -->
+
+                        <div class="container mt-3">
+
+                            <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+
+                            </ul>
+
+                        </div>
+
+
                     <!-- student account ends here -->
                     </div>
                     
@@ -421,7 +433,7 @@
                     <p>Professor Pending...</p>
                     <hr>
                     
-                    <!-- student account starts here -->
+                    <!-- professor account starts here -->
                     <div class="row" id="border-bg">
                         <div class="col-sm-8">
 
@@ -522,7 +534,24 @@
 
                         </div>
 
-                    <!-- student account ends here -->
+                        <!-- Pagination -->
+
+                        <div class="container mt-3">
+
+                            <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+
+                            </ul>
+
+                        </div>
+
+                        
+
+                    <!-- professor account ends here -->
                     </div>
                     
 
@@ -541,9 +570,46 @@
     <!-- tab panes tab content -->
     </div>
 
-<!-- container fluid - contains nav-tab and tab-content -->
+<!-- contains nav-tab and tab-content -->
 </div>
 
+
+<!-- Footer -->
+<div class="fixed-bottom bg-dark text-white">
+    <footer class="border-top-2 p-3">
+
+        <div class="container">
+        <div class="row">
+            <div class="col-8 ft">
+            <p >Copyright © 2020 Research DB. All rights reserved.<br>
+                We use cookies to help provide and enhance our service and tailor content.<br>
+                By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
+
+            <div class="mt-n4">
+                <a href="#">Copyright</a>
+                <span class="px-3">|</span>
+
+                <a href="#">Terms of Use</a>
+                <span class="px-3">|</span>
+
+                <a href="#">Privacy Policy</a>
+
+            </div>
+            </div>
+
+            <div class="col-4">
+            <span>Follow us on:</span><br>
+
+            <span class="fa fa-facebook-official sl"></span>
+            <span class="fa fa-instagram sl px-3"></span>
+            <span class="fa fa-twitter-square sl"></span>
+            </div>
+
+        </div>
+        </div>
+
+    </footer>
+</div>
 
 <script src="../js/researchCoordinator_script.js"></script>
 
