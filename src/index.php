@@ -30,15 +30,14 @@ include "php/server.php";
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
   <!-- Other resources -->
-  <link rel="stylesheet" href="css/imagebg.css">
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/index_style.css">
 
 </head>
 
 <body>
 
 
-  <!-- navigator -->
+  <!-- navigator, modal, body -->
   <div class="bg" style="padding-bottom: 25%;">
     <div class="sticky-top">
 
@@ -66,31 +65,98 @@ include "php/server.php";
             <ul class="navbar-nav ml-auto">
 
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
 
               </li>
 
 
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="php/about_page.php">About</a>
 
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="php/contact_page.php">Contact</a>
 
               </li>
 
+              <!-- Dropdown for Logged-in -->
+              <!--
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop"
+                    data-toggle="dropdown">Webster~</a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item">Settings & privacy</a>
+                  <a href="#" class="dropdown-item">Help Guides</a>
+                  <a href="#" class="dropdown-item">Support Centre</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Sign out</a>
+                </div>
+              </li>
+              -->
+
+              <!-- buttons for Log in and sign up -->
+
+              <li class="nav-item">
+                <a class="nav-link" href="php/login.php">Sign in</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal"
+                    data-target="#myModal">Create account</a>
+              </li>
+              
+              
             </ul>
           </div>
 
 
-
-
-
-
         </div>
       </nav>
+    </div>
+
+  
+
+    <!-- Modal for creating an account -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <!-- modal header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Create an account</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                          d-flex align-items-center justify-content-center">
+
+                    <a href="php/registration_page_student.php"
+                        class="stretched-link">I am a student</a>
+              </div>
+
+              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                          d-flex align-items-center justify-content-center">
+                
+                  <a href="php/registration_page_professor.php"
+                      class="stretched-link">I am a professor</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal footer -->
+          <div class="modal-footer">
+            <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- modal -->
     </div>
 
     <!-- body -->
@@ -151,7 +217,7 @@ include "php/server.php";
 
 
   <!-- Jumbotron -->
-  <div class="jumbotron jumbotron-fluid jt">
+  <div class="jumbotron jumbotron-fluid jumbotron-bg-black text-white">
     <div class="container">
 
       <h1>Lorem lorem ipsum</h1>
