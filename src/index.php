@@ -47,7 +47,7 @@ include "php/server.php";
         <div class="container-fluid">
 
           <div>
-            <div class="hf">
+            <div class="header-font">
               <a class="navbar-brand" href="#">Research DB</a>
             </div>
 
@@ -163,7 +163,7 @@ include "php/server.php";
 
     <div class="container-fluid">
       <div class="display-5" style="margin-top: 13%; margin-left: 8%">
-        <h1>Welcome to RSDB</h1>
+        <h1 class="header-font">Welcome to RSDB</h1>
         <small style="font-size:larger">Search the knowledge hidden within</small>
 
         <!-- Search form -->
@@ -217,10 +217,11 @@ include "php/server.php";
 
 
   <!-- Jumbotron -->
-  <div class="jumbotron jumbotron-fluid jumbotron-bg-black text-white">
+  <div class="jumbotron jumbotron-fluid
+                jumbotron-bg-black text-white">
     <div class="container">
 
-      <h1>Lorem lorem ipsum</h1>
+      <h2 class="header-font">Lorem lorem ipsum</h2>
       <p>Lorem ipsum dolor sit amet. Lorem ipsum lorem ipsum</p>
     </div>
   </div>

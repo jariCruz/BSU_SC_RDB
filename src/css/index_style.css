@@ -7,62 +7,38 @@ body {
     font-family: serif;
     
   }
-    
-  /* Use this when cleaning code*/
-  .cfont {
-    font-family: 'Abril Fatface', serif;  
-  
-  }
-  
-  .cs-1 {
+
+/* Header font */
+.header-font {
+    font-family: 'Abril Fatface', serif;
+
+}
+
+
+.cs-1 {
     font-size: 46px;
-  
-  }
-  
-  .cs-2 {
+
+}
+
+.cs-2 {
     font-size: 20px;
-  
-  }
-  
-  .cs-3 {
+
+}
+
+.cs-3 {
     font-size: 15px;
-  
-  }
-  
-  /* half-done */
-  h1 {
-    font-family: 'Abril Fatface', serif;
-    font-size: 46px;  
-  }
-  
-  /* Header font */
-  .hf {
-    font-family: 'Abril Fatface', serif;
-    font-size: 20px;
-  }
-  
-  
-  /* Footer */
-  .ft {
-    font-size: smaller;
-  
-  }
-  
-  /* Social logo */
-  .sl {
-    font-size: larger;
-  
-  }
+
+}
 
 
-  /* Background image */
-  .bg {
+/* Background image */
+.bg {
     /* The image used */
     background-image: url("../img/background5.jpg");
-  
+
     /* Full height */
     height: 100%;
-  
+
     /* Center and scale the image nicely */
     background-position: left;
     background-repeat: no-repeat;
@@ -74,13 +50,6 @@ body {
     width: max-content;
 
 }
-
-/* Jumbotron */
-
-.jumbotron-bg-black {
-    background-color: #000000;
-  
-  }
 
 
 /* Create an account modal */
@@ -94,4 +63,11 @@ div.modal-hover:hover {
 
 .align-vertical {
     vertical-align: middle;
+}
+
+/* Jumbotron */
+
+.jumbotron-bg-black {
+    background-color: #000000;
+  
 }
