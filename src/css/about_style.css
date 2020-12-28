@@ -3,26 +3,22 @@
 ******************************/
 
 body {
-  font-family: 'serif';
-}
-
-.header-font {
-  font-family: 'Abril Fatface', serif;
-}
-
-#header-size {
-  font-size: 20px;
-}
-
-#greetings-size {
-  font-size: 40px;
-}
-
-.greetings-bg {
-  background-color: #f2f2f2;
-
-}
-
-.subtitle-size-1 {
-  font-size: 40px;
-}
+    font-family: 'serif';
+  }
+  
+  .header-font {
+    font-family: 'Abril Fatface', serif;
+  }
+  
+  #greetings-size {
+    font-size: 40px;
+  }
+  
+  .greetings-bg {
+    background-color: #f2f2f2;
+  
+  }
+  
+  .subtitle-size-1 {
+    font-size: 40px;
+  }

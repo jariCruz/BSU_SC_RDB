@@ -31,6 +31,8 @@ include "php/server.php";
 
   <!-- Other resources -->
   <link rel="stylesheet" href="css/index_style.css">
+  <!-- I really dunno wuts happening here but let it be for now -->
+  <link rel="stylesheet" href="css/contact_style.css">
 
 </head>
 
@@ -164,14 +166,15 @@ include "php/server.php";
     <div class="container-fluid">
       <div class="display-5" style="margin-top: 13%; margin-left: 8%">
         <h1 class="header-font">Welcome to RSDB</h1>
-        <small style="font-size:larger">Search the knowledge hidden within</small>
+        <p style="font-size:larger">Search the knowledge hidden within</p>
 
         <!-- Search form -->
         <form action="php/search_page.php" method="post">
           <div class="input-group mb-3 mt-4" style="width: 50%;">
           <!-- Search button -->
             <div class="input-group-prepend">
-              <button name="search-button" class="btn btn-outline-primary" type="submit" style="background-color: transparent;">Search</button>
+              <button name="search-button" class="btn btn-outline-primary"
+                        type="submit" style="background-color: transparent;">Search</button>
             </div>
             <!-- Search input -->
             <input type="text" class="form-control" onkeyup="search()" id="search-input" name="search-input" style="background-color: transparent;" placeholder="Search for articles...">
