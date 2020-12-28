@@ -1,0 +1,95 @@
+/************************
+*     Search page       *
+************************/
+
+
+/* Width for search bar */
+.cSearch-width {
+    width: 50%;
+  
+}
+
+/* Grey background color */
+.bg-muted {
+  background-color: #f2f2f2;
+
+}
+
+/* Grey font color */
+.text-ash {
+  color: #333333;
+
+}
+
+/* Hoverable text color */
+.hTitle-color:hover {
+  color: blue;
+
+}
+
+/* Hoverable background color */
+.hBg:hover {
+  background-color: #e6fff7;
+
+}
+
+/* For links inside stretched-link */
+.cards .cLink {
+  z-index: 2;
+  position: relative;
+
+}
+
+/* Smaller text size */
+.smaller {
+  font-size: x-small;
+
+}
+
+/* Black font color */
+.ccBlack {
+  color: #000000;
+  
+}
+
+body {
+  font-family: 'serif';
+}
+
+.header-font {
+  font-family: 'Abril Fatface', serif;
+}
+
+#greetings-size {
+  font-size: 40px;
+}
+
+.greetings-bg {
+  background-color: #f2f2f2;
+
+}
+
+.subtitle-size-1 {
+  font-size: 40px;
+}
+
+/******************************
+*   Create an account modal   *
+******************************/
+div.modal-hover:hover {
+  background: #99ebff;
+}
+
+.modal-height {
+  height: 100px;
+}
+
+.align-vertical {
+  vertical-align: middle;
+}
+
+/* Footer */
+
+.mt-bottom {
+  margin-top: 10%;
+}

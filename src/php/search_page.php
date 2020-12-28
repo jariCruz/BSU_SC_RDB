@@ -28,7 +28,7 @@ include "server.php";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/search_style.css">
 
 </head>
 
@@ -38,56 +38,124 @@ include "server.php";
 <!-- navigator -->
 
 <div class="sticky-top">
-<nav class="navbar navbar-expand-md navbar-light bg-light">
 
-<div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
 
-  <div>
-    <div class="hf">
-      <a class="navbar-brand" href="#">Research DB</a>
+        <div class="container-fluid">
+
+          <div>
+            <div class="header-font">
+              <a class="navbar-brand" href="#">Research DB</a>
+            </div>
+
+            <div class="mt-n3">
+              <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+            </div>
+          </div>
+
+          <button class="navbar-toggler" type="button"
+                  data-toggle="collapse" data-target="#collapseNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" href="../index.php">Home</a>
+
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="about_page.php">About</a>
+
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contact_page.php">Contact</a>
+
+              </li>
+
+              <!-- Dropdown for Logged-in -->
+              <!--
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop"
+                    data-toggle="dropdown">Webster~</a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item">Settings & privacy</a>
+                  <a href="#" class="dropdown-item">Help Guides</a>
+                  <a href="#" class="dropdown-item">Support Centre</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item">Sign out</a>
+                </div>
+              </li>
+              -->
+
+              <!-- buttons for Log in and sign up -->
+
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Sign in</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal"
+                    data-target="#myModal">Create account</a>
+              </li>
+              
+              
+            </ul>
+          </div>
+
+
+        </div>
+      </nav>
     </div>
 
-    <div class="mt-n3">
-      <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+  
+
+    <!-- Modal for creating an account -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <!-- modal header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Create an account</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                          d-flex align-items-center justify-content-center">
+
+                    <a href="registration_page_student.php"
+                        class="stretched-link">I am a student</a>
+              </div>
+
+              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                          d-flex align-items-center justify-content-center">
+                
+                  <a href="registration_page_professor.php"
+                      class="stretched-link">I am a professor</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal footer -->
+          <div class="modal-footer">
+            <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- modal -->
     </div>
   </div>
-
-  <button class="navbar-toggler" type="button"
-          data-toggle="collapse" data-target="#collapseNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="collapseNavbar">
-    <ul class="navbar-nav ml-auto">
-
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-
-      </li>
-
-    </ul>
-  </div>
-
-
-
-
-
-
-</div>
-</nav>
-</div>
-
 <!-- Search bar -->
 
 <div class="container-fluid
@@ -115,64 +183,58 @@ include "server.php";
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Filter -->
-        <div class="col-sm-3 pt-3 pl-5 text-ash">
+        <!-- first column -->
+        <div class="col-sm-3 pl-4 pt-4">
 
-            <div class="cpb-1
-                        border border-secondary
-                          border-left-0
-                          border-right-0
-                          border-top-0">
-              <span>9 Results</span>
+            <p>5 Results</p>
+            <hr>
+
+            <!-- Filter Department -->
+            <label>Filter Department:</label>
+
+            <br>
+            <div class="ml-3">
+                <input type="checkbox" id="title">
+                <label for="#title">Title</label>
+
+                <br>
+
+                <input type="checkbox" id="keyword">
+                <label for="#keyword">Keyword</label>
+
+                <br>
+
+                <input type="checkbox" id="abstract">
+                <label for="#abstract">Abstract</label>
+
+                <br>
+                
+                <input type="checkbox" id="content">
+                <label for="#content">Content</label>
             </div>
 
-            <h6 class="mt-3">Filter:</h6>
-            <input type="checkbox">
-            <span>Title</span>
-
-            <br>
-
-            <input type="checkbox">
-            <span>Author</span>
-
-            <br>
-
-            <input type="checkbox">
-            <span>Abstract</span>
-
-            <br>
-
-            <input type="checkbox">
-            <span>Content</span>
-
-
+        <!-- first column -->
         </div>
 
       <!-- Content -->
         <div class="col-sm-6">
 
-          <div class="container pt-3 pb-3">
+          <div class="d-flex align-items-center justify-content-center pt-2">
 
-            <div class="row">
-
-            <!-- Sort -->
-
-              <div class="col-sm-2 pt-1" style="height: 30px;">
-                <p class="">Sort by</p>
-              </div>
 
               <!-- Use the 'active class' to change the btn color -->
-              <div class="btn-group text-dark">
-                  <button class="btn btn-outline-dark active">Most relevant</button>
+            <div class="btn-group text-dark">
 
-                  <button class="btn btn-outline-dark">Most reads</button>
+                <button class="btn btn-outline-dark active">Most relevant</button>
 
-                  <button class="btn btn-outline-dark">Most downloads</button>
-              </div>
+                <button class="btn btn-outline-dark">Most reads</button>
 
+                <button class="btn btn-outline-dark">Most downloads</button>
             </div>
 
           </div>
+
+          <hr>
 
           <!-- Here is the whole research study
                This part includes the research study details
@@ -194,6 +256,7 @@ include "server.php";
               echo '<div class="cards hBg
                             border border-left-0
                                    border-right-0
+                                   border-top-0
                                    border-secondary">
 
                 <div class="card-body pt-3 pl-5">
@@ -331,7 +394,7 @@ include "server.php";
 
 <!-- Footer -->
 
-<footer class="border-top-2 mt-4 pb-4 bg-dark text-light">
+<footer class="border-top-2 pb-4 bg-dark text-light mt-bottom">
 
   <div class="container">
     <div class="row">
