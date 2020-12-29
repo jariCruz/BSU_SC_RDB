@@ -169,15 +169,16 @@ include "php/server.php";
         <p style="font-size:larger">Search the knowledge hidden within</p>
 
         <!-- Search form -->
-        <form action="php/search_page.php" method="post">
+        <form action="php/search_page.php" method="get">
           <div class="input-group mb-3 mt-4" style="width: 50%;">
           <!-- Search button -->
             <div class="input-group-prepend">
-              <button name="search-button" class="btn btn-outline-primary"
+              <button class="btn btn-outline-primary"
                         type="submit" style="background-color: transparent;">Search</button>
             </div>
             <!-- Search input -->
-            <input type="text" class="form-control" onkeyup="search()" id="search-input" name="search-input" style="background-color: transparent;" placeholder="Search for articles...">
+            <input type="hidden" name="page" value="1">
+            <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query" style="background-color: transparent;" placeholder="Search for articles...">
           </div>
         </form>
         <div id="results"><!-- Search results --></div>

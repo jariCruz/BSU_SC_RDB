@@ -5,13 +5,13 @@ if (isset($_GET['q'])) {
   $search = $_GET['q'];// q is from search(this.value)
   $str = "";
 
-  $sql = " SELECT * from researchstudy_table where Title LIKE '%$search%' OR Keywords LIKE '%$search%' ";
+  $sql = " SELECT * from researchstudy_table where Title LIKE '%$search%' OR Keywords LIKE '%$search%' ORDER BY Title ASC";
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
 
-      $str.='<a class="list-group" href="php/search_page.php">'. $row["Title"] .'</a>';
+      $str.='<a class="text-dark" class="list-group" href="php/search_page.php?page=1&query='.$row["Title"].'">'. $row["Title"] .'</a><br>';
     }
     echo $str;
   }

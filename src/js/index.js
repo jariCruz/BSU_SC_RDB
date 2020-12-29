@@ -13,7 +13,7 @@ function search() {
     }
   }                                //V search value
   var searchInp = document.getElementById('search-input').value;
-  console.log(searchInp);
+  //console.log(searchInp);
   xmlhttp.open("GET","php/action.php?q="+searchInp,true);
   xmlhttp.send();
 }
