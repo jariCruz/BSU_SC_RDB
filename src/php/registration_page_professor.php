@@ -24,19 +24,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/registration_professor_style.css">
 
 </head>
 <body>
 
-<!-- Form -->
+    <!-- Form -->
     <div class="container">
-        <h1 class="d-flex justify-content-center">A professor is registering...</h1>
+        <h1 class="d-flex justify-content-center header-font">A professor is registering...</h1>
 
-        <form action="../index.php" novalidate
-                class="needs-validation
-                        border border-dark rounded-lg
-                        p-4 mx-auto mb-3 reg-form-custom-width">
+        <form action="../index.php"
+                class="border border-dark rounded-lg
+                        p-4 mx-auto mb-3 form-width">
 
 
             
@@ -44,7 +43,7 @@
                
                 <!-- Forename field -->
 
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-5 needs-validation">
                     <label for="form_fname">Forename:</label>
                     
                     <input type="text"
@@ -55,37 +54,24 @@
                             minlength="2"
                             maxlength="30"
                             required>
-
-                    <!-- Notification -->
-                    <div class="valid-feedback">Valid~</div>
-                    <div class="invalid-feedback">Fill in this part, please~</div>
-                    
-
-
                 </div>
 
                 <!-- Middle initial field -->
 
-                <div class="form-group col-sm-2">
+                <div class="form-group col-sm-2  needs-validation">
                     <label for="form_mi">M.I.:</label>
                     <input type="text"
                             name="form_mi"
                             id="form_mi"
                             placeholder="M.I."
                             class="form-control"
-                            maxlength="5">
-
-                    <!-- Notification -->
-                    <!-- Recode how not to display when empty
-                    <div class="valid-feedback">Valid~</div>
-                    -->
-                
+                            maxlength="5">                
                 </div>
 
                 <!-- Surname field -->
 
 
-                <div class="form-group col-sm-5">
+                <div class="form-group col-sm-5 needs-validation">
 
                     <label for="form_sname">Surname:</label>
                     <input type="text"
@@ -96,12 +82,6 @@
                             maxlength="30"
                             minlength="1"
                             required>
-
-                    <!-- Notification -->
-
-                    <div class="valid-feedback">Valid~</div>
-                    <div class="invalid-feedback">Fill in this part, please~</div>
-
                 </div>
 
             </div>
@@ -109,7 +89,7 @@
             <!-- Department field -->
             
 
-            <div class="form-group">
+            <div class="form-group needs-validation">
                     <label for="form_department">Department:</label>
                     
                     <select name="form_department"
@@ -119,33 +99,89 @@
                                     border-muted"
                             required>
 
-                        <option value="0" required>Choose department</option>
+                        <option value="" required>Choose department</option>
                         <option value="BIT Department" required>BIT Department</option>
                         <option value="EDUC Department" required>EDUC Department</option>
                     </select>
-
-                            
-
-                <!-- Notification -->
-                <div class="valid-feedback">Valid~</div>
-                <div class="invalid-feedback">Fill in this part, please~</div>
-
-                <script>
-                    $('.dropdown-menu').on('change', function(){
-                        var sDept = $(this).find("option: selected").text();
-
-                        $('#form-department').html(sDept);
-                        $(this).next('.#form-department').html(sDept);
-
-                    });
-                </script>
                 
             </div>
+
+            <!-- Identification card -->
+            
+            <div class="custom-file form-group needs-validation">
+            <label for="form_file1">Identification card:</label>
+                    
+                <!-- Front -->
+                <input type="file"
+                        name="form_file1"
+                        id="form_file1"
+                        class="custom-file-input"
+                        required>
+                <label for="form_file" class="custom-file-label front mt-4">Front</label>
+
+                <!-- Script for adding the name of file to the label -->
+                
+                <script>
+                    $('#form_file1').on('change', function(e){
+                        // Get file name
+                        var fileName = e.target.files[0].name;
+
+                        // Replace the "Choose file..." label
+                        $(this).next('.front').html(fileName);
+                    })
+
+
+                </script>                    
+            </div>
+
+                <!-- Back -->
+                <div class="custom-file form-group needs-validation">
+                    
+                    <input type="file"
+                            name="form_file"
+                            id="form_file2"
+                            class="custom-file-input"
+                            required>
+                    <label for="form_file2" class="custom-file-label back mt-2">Back</label>
+
+                    <!-- Script for adding the name of file to the label -->
+                    
+                    <script>
+                        $('#form_file2').on('change', function(e){
+                            // Get file name
+                            var fileName = e.target.files[0].name;
+
+                            // Replace the "Choose file..." label
+                            $(this).next('.back').html(fileName);
+                        })
+
+
+                    </script>
+                
+                </div>
+
+
+
+            <!-- Address field -->
+
+            <div class="form-group mt-3 needs-validation">
+                <label for="form_address">Address:</label>
+                <input type="text"
+                        name="form_address"
+                        id="form_address"
+                        placeholder="Address"
+                        class="form-control"
+                        maxlength="200"
+                        minlength="8"
+                        required>
+
+            </div>
+
 
             <!-- Password field -->
 
 
-            <div class="form-group mt-2">
+            <div class="form-group needs-validation">
                 <label for="form_pass">Passsword:</label>
                 <input type="password"
                         name="form_pass"
@@ -156,16 +192,11 @@
                         minlength="8"
                         required>
 
-                <!-- Notification -->
-
-                <div class="valid-feedback">Valid~</div>
-                <div class="invalid-feedback">Fill in this part, please~</div>
-
             </div>
 
             <!-- Retype password field -->
 
-            <div class="form-group">
+            <div class="form-group needs-validation">
                 <label for="form_repass">Retype password:</label>
                 <input type="password"
                         name="form_repass"
@@ -176,61 +207,32 @@
                         minlength="8"
                         required>
 
-                <!-- Notification -->
-
-                <div class="valid-feedback">Valid~</div>
-                <div class="invalid-feedback">Fill in this part, please~</div>
-
             </div>
             
             <!-- Checkbox -->
-            <div class="form-group">
+            <div class="form-group needs-validation">
                 <input type="checkbox" required>
                 <span>I accept the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>.</span>
-
-                <!-- Notificaiton -->
-
-                <div class="invalid-feedback">Make sure to tick the checkbox, please~</div>
 
             </div>
 
             <!-- Register btn -->
             <div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary" onclick="validate()">Register</button>
 
             </div>
+            <span class="d-flex justify-content-center mt-3">Already have an account?<a href="login.php">&MediumSpace;Login here.</a></span>
+                
+            <hr>
+            <a class="d-flex justify-content-center my-n3 pt-1"
+                href="registration_page_student.php">Register as a student</a>
 
-            <div class="d-flex justify-content-center mt-3">
-                <span>Already have an account? <a href="login.php">Login here.</a></span>
-            </div>
-            
     
         </form>
     </div>
 
-<!-- Disable form submissions if there are invalid fields -->
-<script>
-    
-    (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-        // Get the forms we want to add validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
-        
-        form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-            
-            event.preventDefault();
-            event.stopPropagation();
-            }   
-            form.classList.add('was-validated');
-        }, false);
-        });
-    }, false);
-    })();
-</script>
+<!-- Form validation -->
+<script src="../js/registration_professor_script.js"></script>
 
 
     
