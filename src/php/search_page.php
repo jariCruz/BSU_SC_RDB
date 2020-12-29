@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <?php
 include "server.php";
+//paginationsht
+if (isset($_GET['page'])) {
+  $page = $_GET['page'];
+}else {
+  $page = 1;
+}
+//limit kung ilan gusto mo i display
+$limit = 5;
+//saan mag sisimula ung i display mo
+$start = ($page - 1) * $limit;
+
+
+if (isset($_GET['query'])) {
+  $search = $_GET['query'];
+}else {
+  $search = '';
+}
 
 ?>
 <html lang="en">
@@ -163,12 +180,13 @@ include "server.php";
                 border border-primary
                     border-left-0
                     border-right-0">
-                    <form action="search_page.php" method="post">
+                    <form action="search_page.php" method="get">
                       <div class="input-group d-flex justify-content-center">
 
                           <div class="input-group-prepend py-sm-4 cSearch-width">
-                              <button name="search-button" id="search-button" class="btn btn-outline-primary" type="submit">Search</button>
-                              <input name="search-input" id="search-input" class="form-control"  type="text">
+                              <button  class="btn btn-outline-primary" type="submit">Search</button>
+                              <input type="hidden" name="page" value="<?php echo 1 ?>">
+                              <input id="query" name="query" class="form-control"  type="text">
                               <button type="button" class="btn btn-default btn-sm">
                                   <span class="fa fa-remove"></span>
                               </button>
@@ -178,7 +196,21 @@ include "server.php";
                     </form>
 </div>
 
-
+<?php
+          //if (isset($_POST['search-button'])) {
+            $files = scandir('../Research_Studies/');
+            echo $search;
+            //this sql naman ay para ipakita ang nilalaman ng nakalimit
+            $sql = " SELECT * from researchstudy_table 
+            where Title LIKE '%$search%' OR Keywords LIKE '%$search%' LIMIT $start, $limit ";
+            //this sql is for getting the number of results
+            $sql_count = " SELECT * from researchstudy_table 
+            where Title LIKE '%$search%' OR Keywords LIKE '%$search%'";
+            $result = mysqli_query($conn, $sql);
+            $count_result = mysqli_query($conn, $sql_count);
+            $number_pages = ceil(mysqli_num_rows($count_result)/$limit);
+            echo $number_pages;
+            ?>
 <!-- Main content -->
 <div class="container-fluid">
     <div class="row">
@@ -186,32 +218,43 @@ include "server.php";
         <!-- first column -->
         <div class="col-sm-3 pl-4 pt-4">
 
-            <p>5 Results</p>
+            <p><?php if (mysqli_num_rows($count_result) > 0) {
+              echo mysqli_num_rows($count_result);
+            }else {
+              echo '0';
+            } ?> Results</p><!-- results count -->
             <hr>
 
-            <!-- Filter Department -->
-            <label>Filter Department:</label>
-
-            <br>
-            <div class="ml-3">
-                <input type="checkbox" id="title">
-                <label for="#title">Title</label>
-
-                <br>
-
-                <input type="checkbox" id="keyword">
-                <label for="#keyword">Keyword</label>
-
-                <br>
-
-                <input type="checkbox" id="abstract">
-                <label for="#abstract">Abstract</label>
-
-                <br>
-                
-                <input type="checkbox" id="content">
-                <label for="#content">Content</label>
-            </div>
+            <?php
+            if (mysqli_num_rows($count_result) === 0) {
+              echo '';
+            }else {
+              echo '<!-- Filter Department -->
+              <label>Filter Department:</label>
+  
+              <br>
+              <div class="ml-3">
+                  <input type="checkbox" id="title">
+                  <label for="#title">Title</label>
+  
+                  <br>
+  
+                  <input type="checkbox" id="keyword">
+                  <label for="#keyword">Keyword</label>
+  
+                  <br>
+  
+                  <input type="checkbox" id="abstract">
+                  <label for="#abstract">Abstract</label>
+  
+                  <br>
+                  
+                  <input type="checkbox" id="content">
+                  <label for="#content">Content</label>
+              </div>';
+            }
+            
+            ?>
 
         <!-- first column -->
         </div>
@@ -223,6 +266,7 @@ include "server.php";
 
 
               <!-- Use the 'active class' to change the btn color -->
+            <?php if (mysqli_num_rows($count_result) > 0) {?>
             <div class="btn-group text-dark">
 
                 <button class="btn btn-outline-dark active">Most relevant</button>
@@ -231,29 +275,22 @@ include "server.php";
 
                 <button class="btn btn-outline-dark">Most downloads</button>
             </div>
+            <?php }else {
+              echo '';
+            }?>
 
           </div>
-
-          <hr>
 
           <!-- Here is the whole research study
                This part includes the research study details
                   (titles, authors, abstract, view pdf, download file,
                   and statistics for reads and downloads)-->
 
-          <?php
-          if (isset($_POST['search-button'])) {
-            $files = scandir('../Research_Studies/');
-            $search = $_POST['search-input'];
-            $str = "";
-
-            $sql = " SELECT * from researchstudy_table 
-            where Title LIKE '%$search%' OR Keywords LIKE '%$search%' ";
-            $result = mysqli_query($conn, $sql);
-
+            <?php
            if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
-              echo '<div class="cards hBg
+              ?>
+              <div class="cards hBg
                             border border-left-0
                                    border-right-0
                                    border-top-0
@@ -265,14 +302,14 @@ include "server.php";
                   <!-- Research studies information -->
                   <div class="row">
                     <div class="col-sm-10 pr-5">
-                      <h4 class="cfont cs-2">'.$row["Title"].'</h4>
+                      <h4 class="cfont cs-2"><?php echo $row["Title"]?></h4><!-- Research title -->
 
                       <a href="#" class="cLink">Author</a>
-                      <p>'.$row["Author"].'</p>
+                      <p><?php echo $row["Author"]?></p><!-- Author name -->
 
                       <a href="#" class="fa fa-download cLink"> Download</a>
 
-                      <a href="../Research_Studies/'.$row['File'].'" class="fa fa-file cLink"> View PDF</a>
+                      <a href="../Research_Studies/<?php echo $row['File']?>" class="fa fa-file cLink"> View PDF</a><!-- View button -->
 
 
                       <!-- Modal -->
@@ -286,8 +323,8 @@ include "server.php";
                               <div class="modal-header">
                                 <div class="btn-group">
                                   <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
-                                  <form action="../Research_Studies/'.$row['File'].'" method="post">
-                                  <button type="submit" class="btn btn-outline-dark fa fa-file"> View PDF</button>
+                                  <form action="../Research_Studies/<?php echo $row['File']?>" method="post">
+                                  <button type="submit" class="btn btn-outline-dark fa fa-file"> View PDF</button><!-- View button -->
                                   </form>
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -301,17 +338,15 @@ include "server.php";
                               <!-- Make the title color black -->
                               <!-- Make the hover color blue -->
 
-                              <div class="cfont cs-2">'.$row['Title'].'</div>
+                              <div class="cfont cs-2"><?php echo $row['Title']?></div><!-- research title -->
                               <br>
-                              <div>'.$row['Author'].'</div>
+                              <div><?php echo $row['Author']?></div><!-- author name -->
 
                               <hr class="bg-muted">
 
                               <p class="text-uppercase">Abstract</p>
 
-                              <p>
-                              '.$row['Abstract'].'
-                              </p>
+                              <p><?php echo $row['Abstract']?></p><!-- research abstract -->
 
                             </div>
 
@@ -339,12 +374,12 @@ include "server.php";
 
                   <div class="col-sm-2">
                     <div class=" pt-2 text-ash">
-                      <p class="text-center smaller">5<br>Readers</p>
+                      <p class="text-center smaller">5<br>Readers</p><!-- count of views -->
 
                     </div>
 
                     <div class="pt-2 text-ash">
-                      <p class="text-center smaller">5<br>Downloads</p>
+                      <p class="text-center smaller">5<br>Downloads</p><!-- count of downloads -->
                     </div>
 
 
@@ -357,27 +392,32 @@ include "server.php";
 
 
 
-              </div>';
+              </div>
+          <?php
             }
           } else {
             echo "No Results Found";
-          }
-         } ?>
+          } ?>
 
           <!-- The whole research study details ends here -->
 
 
           <!-- Pagination -->
+          <?php 
+            
+          ?>
 
           <div class="container mt-3">
-
             <ul class="pagination justify-content-center">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-
+            <?php if ($page > 1) { ?>
+              <li class="page-item"><a class="page-link" href="search_page.php?page=<?php echo ($page - 1)?>&query=<?php echo $search ?>">Previous</a></li>
+            <?php }?>
+            <?php for ($i=0; $i < $number_pages; $i++) {?>
+              <li class="page-item active"><a class="page-link" href="search_page.php?page=<?php echo $i?>&query=<?php echo $search ?>"><?php echo 1+$i?></a></li>
+            <?php }?>
+            <?php if ($i > $page) { ?>
+              <li class="page-item"><a class="page-link" href="search_page.php?page=<?php echo ($page + 1)?>&query=<?php echo $search ?>">Next</a></li>
+            <?php }?>
             </ul>
 
           </div>
@@ -428,8 +468,5 @@ include "server.php";
 
 </footer>
 
-<script src="../js/index.js">
-
-</script>
 </body>
 </html>
