@@ -24,22 +24,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/login_style.css">
 
 </head>
 <body>
 
 <!-- Form -->
     <div class="container">
-        <h1 class="d-flex justify-content-center">Someone is logging in...</h1>
+        <h1 class="d-flex justify-content-center header-font">Someone is logging in...</h1>
 
-        <form action="../index.php" novalidate
+        <form action="../index.php"
                 class="needs-validation
                         border border-dark rounded-lg
-                        p-5 mx-auto mb-3 reg-form-custom-width">
-
-
-            
+                        p-4 mx-auto mb-3 form-width">
             
             
             <!-- Forename field -->
@@ -54,13 +51,7 @@
                         name="form_uname"
                         minlength="2"
                         maxlength="30"
-                        required>
-
-                <!-- Notification -->
-                <div class="valid-feedback">Valid~</div>
-                <div class="invalid-feedback">Fill in this part, please~</div>
-                
-
+                        required>                
 
             </div>
 
@@ -78,50 +69,44 @@
                         minlength="8"
                         required>
 
-                <!-- Notification -->
-
-                <div class="valid-feedback">Valid~</div>
-                <div class="invalid-feedback">Fill in this part, please~</div>
-
             </div>
 
             
             <!-- Checkbox -->
             
             
-                
-                <div class="row">
-                    <div class="form-group col">
-                        <input type="checkbox">
-                        <span>Remember me</span>
-                    </div>
-
-                    <!-- Register btn -->
-                    <div class="col d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                
+            <div class="row">
+                <div class="form-group col">
+                    <input type="checkbox">
+                    <span>Remember me</span>
                 </div>
-                
+
+                <!-- Register btn -->
+                <div class="col d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            
+            </div>
+            
 
                 
             
 
-            <div class="d-flex justify-content-center mt-3">
-                <span>Don't have an account yet? <a href="login.php">Register here.</a></span>
-            </div>
+            <span class="d-flex justify-content-center mt-3">Don't have an account yet?&MediumSpace;
+                <a href="login.php">Register here.</a>
+            </span>
 
             <!-- just a freakin horizontal line -->            
             <hr class="bg-dark mt-4">
 
-            <div class="d-flex justify-content-center">
-                <a href="#">Forgot password? Click here</a>
-            </div>
+            <span class="d-flex justify-content-center">
+                <a href="#">Forgot password?</a>
+            </span>
     
         </form>
     </div>
 
-<!-- Disable form submissions if there are invalid fields -->
+<!-- Form validation -->
 <script>
     
     (function() {
