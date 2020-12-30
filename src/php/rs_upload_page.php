@@ -317,7 +317,7 @@
     </div>
 
 <!-- Script for form's validation -->
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../js/rs_upload_page.js"></script>
 
 

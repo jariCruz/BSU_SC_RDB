@@ -49,9 +49,20 @@ function nextPrev(n) {
   currentTab = currentTab + n;
   // If you have reached the end of the form
   if (currentTab >= x.length) {
-    // the form gets submitted
-    document.getElementById("rs_upload_form").submit();
-    return false;
+    // the form gets submitted  
+    swal({
+      title: "Registration Success!",
+      text: "Click OK to return in research coordinator page",
+      icon: "success",
+      button: true,
+    })
+    .then((ok)=>{
+        if (ok) {
+          document.getElementById("rs_upload_form").submit();
+        }else {
+            false;
+        }
+    });
   }
   // Otherwise display the correct tab
   showTab(currentTab);
