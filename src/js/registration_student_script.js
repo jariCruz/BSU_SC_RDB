@@ -6,6 +6,9 @@ var inputs = document.getElementsByTagName("input");
 var selects = document.getElementsByTagName("select");
 
 function validate() {
+    var pass = document.getElementById("form_pass").value;
+    var r_pass = document.getElementById("form_repass").value;
+    console.log(pass);
 
     for (var i = 0; i < inputs.length; i++) {
 
@@ -23,6 +26,7 @@ function validate() {
 
             inputs[i].parentElement.className += " was-validated";
         }
+
     }
 
     // Loop for select tags
@@ -33,5 +37,28 @@ function validate() {
         selects[i].parentElement.className += " was-validated";
 
         }
+    }
+    //validate retype password
+    if (pass != r_pass) {
+        swal({
+            title: "Registration Failed!",
+            text: "Password and retype password is not the same!",
+            icon: "error",
+            button: true,
+          });;
+    }else {
+        swal({
+            title: "Registration Success!",
+            text: "Click OK to return in Homepage",
+            icon: "success",
+            button: true,
+          })
+          .then((ok)=>{
+              if (ok) {
+                document.getElementById("register_form").submit();
+              }else {
+                  false;
+              }
+          });
     }
 }

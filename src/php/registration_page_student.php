@@ -33,8 +33,11 @@
     <div class="container">
         <h1 class="d-flex justify-content-center header-font">A student is registering...</h1>
 
-        <form action="../index.php"
-                class="border border-dark rounded-lg
+        <form id="register_form" 
+        action="registration_page_student_function.php" 
+        method="post" 
+        enctype="multipart/form-data"
+        class="border border-dark rounded-lg
                         p-4 mx-auto mb-3 form-width">
 
 
@@ -98,8 +101,9 @@
                     name="form_file1"
                     id="form_file1"
                     class="custom-file-input"
+                    accept="image/*"
                     required>
-            <label for="form_file" class="custom-file-label front mt-4">Front</label>
+            <label for="form_file1" class="custom-file-label front mt-4">Front</label>
 
             <!-- Script for adding the name of file to the label -->
             
@@ -120,9 +124,10 @@
             <div class="custom-file form-group needs-validation">
                 
                 <input type="file"
-                        name="form_file"
+                        name="form_file2"
                         id="form_file2"
                         class="custom-file-input"
+                        accept="image/*"
                         required>
                 <label for="form_file2" class="custom-file-label back mt-2">Back</label>
 
@@ -244,7 +249,7 @@
 
         <!-- Register btn -->
         <div>
-            <button type="submit" class="btn btn-primary" onclick="validate()">Register</button>
+            <button type="button" class="btn btn-primary" name="registerBtn" id="registerBtn" onclick="validate()">Register</button>
 
         </div>
 
@@ -259,6 +264,7 @@
 </div>
 
 <!-- Form validation -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../js/registration_student_script.js"></script>
 
 </body>
