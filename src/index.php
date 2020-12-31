@@ -174,11 +174,12 @@ include "php/server.php";
           <!-- Search button -->
             <div class="input-group-prepend">
               <button class="btn btn-outline-primary"
-                        type="submit" style="background-color: transparent;">Search</button>
+                        type="submit">Search</button>
             </div>
-            <!-- Search input -->
-            <input type="hidden" name="page" value="1">
-            <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query" style="background-color: transparent;" placeholder="Search for articles...">
+              <!-- Search input -->
+              <input type="hidden" name="page" value="1">
+              <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query"
+                      style="background-color: transparent;" placeholder="Search for articles..." required>
           </div>
         </form>
         <div id="results"><!-- Search results --></div>
