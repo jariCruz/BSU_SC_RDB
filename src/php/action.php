@@ -1,9 +1,7 @@
 <?php
 include "server.php";
-//live search
-if (isset($_GET['q'])) {
-  $search = $_GET['q'];// q is from search(this.value)
-  $str = "";
+  $search = $_GET['term'];
+  $json=array();
 
   $sql = " SELECT * from researchstudy_table where Title LIKE '%$search%' OR Keywords LIKE '%$search%' ORDER BY Title ASC";
   $result = mysqli_query($conn, $sql);
@@ -11,13 +9,10 @@ if (isset($_GET['q'])) {
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
 
-      $str.='<a class="text-dark" class="list-group" href="php/search_page.php?page=1&query='.$row["Title"].'">'. $row["Title"] .'</a><br>';
+        array_push($json, $row['Title']);
     }
-    echo $str;
   }
-  //end if (mysqli_num_rows($result) > 0)
   else {
-    $str="No Results Found";
-    echo $str;
+      array_push($json, "No results found");
   }
-}//end of live search
+  echo json_encode($json);
