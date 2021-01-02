@@ -32,6 +32,10 @@ if (isset($_GET['query'])) {
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <!-- jQuery UI library -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
@@ -187,7 +191,7 @@ if (isset($_GET['query'])) {
                           <form action="#">
                                 <button class="btn btn-outline-primary" type="submit">Search</button>
                                 <input type="hidden" name="page" value="<?php echo 1 ?>">
-                                <input required id="query" name="query" class="form-control"  type="text">
+                                <input required id="search-input" name="query" class="form-control"  type="text">
                                 <button type="reset" class="btn btn-default btn-sm fa fa-remove">
                               </form>
                           </div>
@@ -467,5 +471,13 @@ if (isset($_GET['query'])) {
 
 </footer>
 
+<!-- Autocomplete -->
+<script>
+  $(function() {
+        $("#search-input").autocomplete({
+            source: "action.php",
+        });
+    });
+</script>
 </body>
 </html>
