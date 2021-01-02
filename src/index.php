@@ -178,7 +178,7 @@ include "php/server.php";
             </div>
               <!-- Search input -->
               <input type="hidden" name="page" value="1">
-              <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query"
+              <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query" autocomplete="off"
                       style="background-color: transparent;" placeholder="Search for articles..." required>
           </div>
         </form>

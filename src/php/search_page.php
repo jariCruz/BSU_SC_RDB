@@ -62,7 +62,7 @@ if (isset($_GET['query'])) {
 
           <div>
             <div class="header-font">
-              <a class="navbar-brand" href="#">Research DB</a>
+              <a class="navbar-brand" href="../index.php">Research DB</a>
             </div>
 
             <div class="mt-n3">
@@ -180,13 +180,13 @@ if (isset($_GET['query'])) {
                 border border-primary
                     border-left-0
                     border-right-0">
-                    <form action="search_page.php" method="get">
+                    <form action="search_page.php" method="get" autocomplete="off">
                       <div class="input-group d-flex justify-content-center">
 
                           <div class="input-group-prepend py-sm-4 cSearch-width">
                               <button  class="btn btn-outline-primary" type="submit">Search</button>
                               <input type="hidden" name="page" value="<?php echo 1 ?>">
-                              <input id="query" name="query" class="form-control"  type="text">
+                              <input id="query" name="query" class="form-control"  type="text" value="<?php echo $search ?>">
                               <button type="button" class="btn btn-default btn-sm">
                                   <span class="fa fa-remove"></span>
                               </button>
@@ -199,7 +199,6 @@ if (isset($_GET['query'])) {
 <?php
           //if (isset($_POST['search-button'])) {
             $files = scandir('../Research_Studies/');
-            echo $search;
             //this sql naman ay para ipakita ang nilalaman ng nakalimit
             $sql = " SELECT * from researchstudy_table 
             where Title LIKE '%$search%' OR Keywords LIKE '%$search%' LIMIT $start, $limit ";
@@ -209,7 +208,6 @@ if (isset($_GET['query'])) {
             $result = mysqli_query($conn, $sql);
             $count_result = mysqli_query($conn, $sql_count);
             $number_pages = ceil(mysqli_num_rows($count_result)/$limit);
-            echo $number_pages;
             ?>
 <!-- Main content -->
 <div class="container-fluid">
