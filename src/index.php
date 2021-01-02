@@ -277,6 +277,10 @@ include "php/server.php";
     $(function() {
         $("#search-input").autocomplete({
             source: "php/action.php",
+            select: function(event, ui) {   
+                console.log(ui.item.value);
+                    location.href="php/search_page.php?page=1&query="+ui.item.value;
+            }
         });
     });
     </script>

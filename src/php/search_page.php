@@ -415,8 +415,8 @@ if (isset($_GET['query'])) {
             <?php if ($page > 1) { ?>
               <li class="page-item"><a class="page-link" href="search_page.php?page=<?php echo ($page - 1)?>&query=<?php echo $search ?>">Previous</a></li>
             <?php }?>
-            <?php for ($i=0; $i < $number_pages; $i++) {?>
-              <li class="page-item active"><a class="page-link" href="search_page.php?page=<?php echo $i?>&query=<?php echo $search ?>"><?php echo 1+$i?></a></li>
+            <?php for ($i=1; $i < $number_pages; $i++) {?>
+              <li class="page-item active"><a class="page-link" href="search_page.php?page=<?php echo $i?>&query=<?php echo $search ?>"><?php echo $i?></a></li>
             <?php }?>
             <?php if ($i > $page) { ?>
               <li class="page-item"><a class="page-link" href="search_page.php?page=<?php echo ($page + 1)?>&query=<?php echo $search ?>">Next</a></li>
@@ -476,6 +476,10 @@ if (isset($_GET['query'])) {
   $(function() {
         $("#search-input").autocomplete({
             source: "action.php",
+            select: function(event, ui) {   
+                console.log(ui.item.value);
+                    location.href="search_page.php?page=1&query="+ui.item.value;
+            }
         });
     });
 </script>
