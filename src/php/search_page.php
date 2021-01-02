@@ -184,12 +184,12 @@ if (isset($_GET['query'])) {
                       <div class="input-group d-flex justify-content-center">
 
                           <div class="input-group-prepend py-sm-4 cSearch-width">
-                              <button  class="btn btn-outline-primary" type="submit">Search</button>
-                              <input type="hidden" name="page" value="<?php echo 1 ?>">
-                              <input id="query" name="query" class="form-control"  type="text" value="<?php echo $search ?>">
-                              <button type="button" class="btn btn-default btn-sm">
-                                  <span class="fa fa-remove"></span>
-                              </button>
+                          <form action="#">
+                                <button class="btn btn-outline-primary" type="submit">Search</button>
+                                <input type="hidden" name="page" value="<?php echo 1 ?>">
+                                <input required id="query" name="query" class="form-control"  type="text">
+                                <button type="reset" class="btn btn-default btn-sm fa fa-remove">
+                              </form>
                           </div>
 
                       </div>
@@ -278,6 +278,7 @@ if (isset($_GET['query'])) {
             }?>
 
           </div>
+          <hr>
 
           <!-- Here is the whole research study
                This part includes the research study details
@@ -288,13 +289,13 @@ if (isset($_GET['query'])) {
            if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
               ?>
-              <div class="cards hBg
-                            border border-left-0
-                                   border-right-0
-                                   border-top-0
-                                   border-secondary">
+            <div class="cards hBg mt-n3
+                  border border-left-0
+                          border-right-0
+                          border-top-0
+                          border-semilightblue">
 
-                <div class="card-body pt-3 pl-5">
+                <div class="card-body pl-5">
 
 
                   <!-- Research studies information -->

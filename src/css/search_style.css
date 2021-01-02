@@ -15,6 +15,11 @@
 
 }
 
+/* Border semi-light */
+.border-semilight {
+  border-bottom: 1px solid #ffffff;
+}
+
 /* Grey font color */
 .text-ash {
   color: #333333;
