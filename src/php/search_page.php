@@ -199,7 +199,7 @@ if (isset($_GET['query'])) {
 
   <?php
   //if (isset($_POST['search-button'])) {
-  $files = scandir('../Research_Studies/');
+  //$files = scandir('../Research_Studies/');
   //this sql naman ay para ipakita ang nilalaman ng nakalimit
   $sql = " SELECT * from researchstudy_table 
             where Title LIKE '%$search%' OR Keywords LIKE '%$search%' LIMIT $start, $limit ";
@@ -307,7 +307,7 @@ if (isset($_GET['query'])) {
                     <a href="#" class="cLink">Author</a>
                     <p><?php echo $row["Author"] ?></p><!-- Author name -->
                       <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" 
-                      onclick="addDownload(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')" 
+                      onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')" 
                       class="fa fa-download cLink"> Download</a>
                     <!-- href="../Research_Studies/<?php// echo $row['File'] ?>" -->
                       <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" 
@@ -325,10 +325,16 @@ if (isset($_GET['query'])) {
 
                             <div class="modal-header">
                               <div class="btn-group">
-                                <button type="button" class="btn btn-outline-dark fa fa-download"> Download</button>
-                                <form action="../Research_Studies/<?php echo $row['File'] ?>" method="post">
-                                  <button type="submit" class="btn btn-outline-dark fa fa-file"> View PDF</button><!-- View button -->
-                                </form>
+                                <!-- Download PDF -->
+                                <button type="button" 
+                                onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')"
+                                class="btn btn-outline-dark fa fa-download"> Download</button><!-- Download button -->
+                                
+                                <!-- View PDF -->
+                                <button type="submit" 
+                                onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')"
+                                class="btn btn-outline-dark fa fa-file"> View PDF</button><!-- View button -->
+                                
                               </div>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
@@ -500,7 +506,7 @@ if (isset($_GET['query'])) {
       //console.log(url);
       xmlhttp.open("GET", "action.php?addViews=" + RS_ID, true);
       xmlhttp.send();
-      window.open(url, '_blank');
+      window.open(url+'#toolbar=0','_blank', 'location=no');
     }
     //add count for downloads
     function addDownload(RS_ID, url) {
@@ -512,6 +518,7 @@ if (isset($_GET['query'])) {
       };
       xmlhttp.open("GET", "action.php?addDownloads=" + RS_ID, true);
       xmlhttp.send();
+      window.open(url);
     }
   </script>
 </body>
