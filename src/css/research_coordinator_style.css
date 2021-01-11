@@ -1,0 +1,116 @@
+/******************************
+*  Research coordinator page  *
+******************************/
+
+body {
+    font-family: 'serif';
+  }
+  
+  .header-font {
+    font-family: 'Abril Fatface', serif;
+  }
+  
+  #greetings-size {
+    font-size: 40px;
+  }
+  
+  
+  #greetings-bg {
+    background-color: #f2f2f2;
+  
+  }
+  
+  
+  /******************************
+  *        Dropdown menu        *
+  ******************************/
+  
+  
+  .dropbtn {
+    background-color: #ffffff;
+    color: #1188ff;
+    padding: 8px 12px;
+    font-size: inherit;
+    border: none;
+  }
+  
+  .dropbtn:hover {
+    color: #0066ff;
+    padding: 7px 11px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    border-bottom: none;
+  
+  } 
+  
+  .dropdown-active {
+    border: 1.5px solid #e6e6e6;
+    border-radius: 3px;
+    position: relative;
+    border-bottom: none;
+  
+  /* make the bottom invicible */
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  
+  /* Sort and filter margin left */
+  
+  .sf-margin-left {
+      margin-left: 16%;
+  }
+  
+  /* Width button */
+  
+  .mw-btn-150p {
+    
+    max-width: 150%;
+  }
+  
+  /* Student account border */
+  
+  #border-bg {
+    border-bottom: 1px solid #e3e3e3;
+    
+  }
+  
+  /* Footer margin top */
+  #mt-20rem {
+  
+      margin-top: 20rem;
+  }
+  
+  /* Account btn deny & verify */
+  .w-btn-acc {
+    width: 48%;
+    
+  }
+
+  /* Width for search bar */
+.cSearch-width {
+    width: 50%;
+  
+}
