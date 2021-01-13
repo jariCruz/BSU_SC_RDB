@@ -1,4 +1,5 @@
 <?php
+require "php/header.php";
 include "php/server.php";
 ?>
 
@@ -104,14 +105,20 @@ include "php/server.php";
 
               <!-- buttons for Log in and sign up -->
 
-              <li class="nav-item">
+              <?php if (!isset($_SESSION['user_id'])) {
+              echo '<li class="nav-item">
                 <a class="nav-link" href="php/login.php">Sign in</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
                     data-target="#myModal">Create account</a>
-              </li>
+              </li>';
+              }else {
+                echo '<li class="nav-item">
+                  <a class="nav-link" href="php/logout.php">Logout</a>
+                </li>';
+              } ?>
               
               
             </ul>
@@ -182,7 +189,7 @@ include "php/server.php";
             </div>
               <!-- Search input -->
               <input type="hidden" name="page" value="1">
-              <input type="text" class="form-control" onkeyup="search()" id="search-input" name="query" autocomplete="off"
+              <input type="text" class="form-control" id="search-input" name="query" autocomplete="off"
                       style="background-color: transparent;" placeholder="Search for articles..." required>
           </div>
         </form>

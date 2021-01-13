@@ -33,7 +33,7 @@
     <div class="container">
         <h1 class="d-flex justify-content-center header-font">Someone is logging in...</h1>
 
-        <form action="../index.php"
+        <form action="login_function.php" method="post"
                 class="needs-validation
                         border border-dark rounded-lg
                         p-4 mx-auto mb-3 form-width">
@@ -83,7 +83,7 @@
 
                 <!-- Register btn -->
                 <div class="col d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button name="login-submit" id="login-submit" type="submit" class="btn btn-primary">Login</button>
                 </div>
             
             </div>

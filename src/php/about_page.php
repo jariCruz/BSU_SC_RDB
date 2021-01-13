@@ -1,3 +1,6 @@
+<?php
+require "header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +92,7 @@
               -->
 
               <!-- buttons for Log in and sign up -->
-
+              <?php if (!isset($_SESSION)) { ?>
               <li class="nav-item">
                 <a class="nav-link" href="login.php">Sign in</a>
               </li>
@@ -98,6 +101,11 @@
                 <a class="nav-link" href="#" data-toggle="modal"
                     data-target="#myModal">Create account</a>
               </li>
+              <?php }else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+              </li>
+              <?php } ?>
               
               
             </ul>

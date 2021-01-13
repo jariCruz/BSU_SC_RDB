@@ -8,6 +8,7 @@
         $yr_level = $conn -> real_escape_string($_POST['form_year']);
         $course = $conn -> real_escape_string($_POST['form_course']);
         $address = $conn -> real_escape_string($_POST['form_address']);
+        $username = $conn -> real_escape_string($_POST['form_uname']);
         $password = $conn -> real_escape_string($_POST['form_pass']);
         $r_password = $conn -> real_escape_string($_POST['form_repass']);
         $enc_password = md5($password);
@@ -50,9 +51,9 @@
 
 
 
-            $sql = "INSERT INTO student_table (student_name, student_password, student_retype_password, student_year_level,
+            $sql = "INSERT INTO student_table (student_name, student_username, student_password, student_retype_password, student_year_level,
             student_course, student_address, student_id_front, student_id_back)
-            VALUES ('$fullname', '$enc_password', '$enc_r_password', '$yr_level', '$course', '$address', 
+            VALUES ('$fullname', '$username', '$enc_password', '$enc_r_password', '$yr_level', '$course', '$address', 
             '$id_front_new_name', '$id_back_new_name')";
 
             if ($conn->query($sql) === TRUE && $uploadOk === 1) {
@@ -60,7 +61,7 @@
                 $new_dir_inside = $target_dir.$new_dir;
                 move_uploaded_file($_FILES['form_file1']['tmp_name'], $new_dir_inside.$id_front_new_name);
                 move_uploaded_file($_FILES['form_file2']['tmp_name'], $new_dir_inside.$id_back_new_name);
-                echo "Successfully";
+                header("Location: ../index.php");
             }else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }    

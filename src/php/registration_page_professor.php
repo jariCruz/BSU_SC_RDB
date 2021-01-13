@@ -33,7 +33,10 @@
     <div class="container">
         <h1 class="d-flex justify-content-center header-font">A professor is registering...</h1>
 
-        <form action="../index.php"
+        <form id="register_form"
+         action="registration_page_professor_function.php"
+         method="post"
+         enctype="multipart/form-data"
                 class="border border-dark rounded-lg
                         p-4 mx-auto mb-3 form-width">
 
@@ -116,8 +119,9 @@
                         name="form_file1"
                         id="form_file1"
                         class="custom-file-input"
+                        accept="image/*"
                         required>
-                <label for="form_file" class="custom-file-label front mt-4">Front</label>
+                <label for="form_file1" class="custom-file-label front mt-4">Front</label>
 
                 <!-- Script for adding the name of file to the label -->
                 
@@ -138,9 +142,10 @@
                 <div class="custom-file form-group needs-validation">
                     
                     <input type="file"
-                            name="form_file"
+                            name="form_file2"
                             id="form_file2"
                             class="custom-file-input"
+                            accept="image/*"
                             required>
                     <label for="form_file2" class="custom-file-label back mt-2">Back</label>
 
@@ -170,6 +175,22 @@
                         name="form_address"
                         id="form_address"
                         placeholder="Address"
+                        class="form-control"
+                        maxlength="200"
+                        minlength="8"
+                        required>
+
+            </div>
+
+
+            <!-- Username -->
+
+            <div class="form-group needs-validation">
+                <label for="form_address">Username:</label>
+                <input type="text"
+                        name="form_uname"
+                        id="form_uname"
+                        placeholder="Username"
                         class="form-control"
                         maxlength="200"
                         minlength="8"
@@ -218,7 +239,7 @@
 
             <!-- Register btn -->
             <div>
-                <button type="submit" class="btn btn-primary" onclick="validate()">Register</button>
+                <button type="button" class="btn btn-primary"  name="registerBtn" id="registerBtn" onclick="validate()">Register</button>
 
             </div>
             <span class="d-flex justify-content-center mt-3">Already have an account?<a href="login.php">&MediumSpace;Login here.</a></span>
@@ -232,7 +253,8 @@
     </div>
 
 <!-- Form validation -->
-<script src="../js/registration_professor_script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/registration_student_script.js"></script>
 
 
     

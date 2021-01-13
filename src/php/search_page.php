@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+require "header.php";
 include "server.php";
 //paginationsht
 if (isset($_GET['page'])) {
@@ -20,6 +20,9 @@ if (isset($_GET['query'])) {
 }
 
 ?>
+
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -116,13 +119,20 @@ if (isset($_GET['query'])) {
 
             <!-- buttons for Log in and sign up -->
 
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Sign in</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Create account</a>
-            </li>
+            <?php if (!isset($_SESSION['user_id'])) {
+              echo '
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Sign in</a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Create account</a>
+              </li>';
+            }else {
+              echo '<li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+              </li>';
+            } ?>
 
 
           </ul>

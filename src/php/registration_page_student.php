@@ -209,6 +209,22 @@
         </div>
 
 
+        <!-- Username -->
+
+        <div class="form-group needs-validation">
+            <label for="form_address">Username:</label>
+            <input type="text"
+                    name="form_uname"
+                    id="form_uname"
+                    placeholder="Username"
+                    class="form-control"
+                    maxlength="200"
+                    minlength="8"
+                    required>
+
+        </div>
+
+
         <!-- Password field -->
 
         <div class="form-group needs-validation">

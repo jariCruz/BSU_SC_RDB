@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "server.php";
 if (isset($_GET['term'])) {
   $search = $_GET['term'];
