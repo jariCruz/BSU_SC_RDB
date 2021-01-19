@@ -90,12 +90,13 @@
         <!-- buttons for Log in and sign up -->
 
         <li class="nav-item">
-            <a class="nav-link" href="login.php">Sign in</a>
+            <a class="nav-link" href="#" data-toggle="modal"
+                data-target="#signIn_mc">Sign in</a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal"
-                data-target="#myModal">Create account</a>
+                data-target="#create_mc">Create account</a>
         </li>
         
         
@@ -108,44 +109,165 @@
     </div>
 
 
+    <!-- Modal for sign in -->
+    <div class="modal fade" id="signIn_mc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    
+                <!-- modal header -->
+                <div class="modal-header">
+                    <h5 class="modal-title header-font">Someone is logging in...</h5>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- modal body -->
+                <div class="modal-body">
+
+                    <form action="login_function.php" method="post"
+                            class="needs-validation
+                                    p-4 mx-auto mb-3">
+                        
+                        
+                        <!-- Forename field -->
+
+                        <div class="form-group">
+                            <label for="form_fname">Username:</label>
+                            
+                            <input type="text"
+                                    class="form-control"
+                                    id="form_uname"
+                                    placeholder="Username"
+                                    name="form_uname"
+                                    minlength="2"
+                                    maxlength="30"
+                                    required>                
+
+                        </div>
+
+                        <!-- Password field -->
+
+
+                        <div class="form-group mt-2">
+                            <label for="form_pass">Passsword:</label>
+                            <input type="password"
+                                    name="form_pass"
+                                    id="form_pass"
+                                    placeholder="Password"
+                                    class="form-control"
+                                    maxlength="30"
+                                    minlength="8"
+                                    required>
+
+                        </div>
+
+                        
+                        <!-- Checkbox -->
+                        
+                        
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </div>
+
+                            <!-- Register btn -->
+                            <div class="col d-flex justify-content-end">
+                                <button name="login-submit" id="login-submit" type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        
+                        </div>
+                        
+                        <span class="d-flex justify-content-center mt-3">Don't have an account yet?&MediumSpace;
+                            <a data-dismiss="modal" href="#" data-toggle="modal" data-target="#create_mc">Register here.</a>
+                        </span>
+
+                        <!-- just a freakin horizontal line -->            
+                        <hr class="bg-dark mt-4">
+
+                        <span class="d-flex justify-content-center">
+                            <a href="#">Forgot password?</a>
+                        </span>
+
+                    </form>
+                </div>
+
+                <!-- Form validation -->
+                <script>
+
+                    (function() {
+                    'use strict';
+                    window.addEventListener('load', function() {
+                    // Get the forms we want to add validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                        
+                        event.preventDefault();
+                        event.stopPropagation();
+                        }   
+                        form.classList.add('was-validated');
+                    }, false);
+                    });
+                    }, false);
+                    })();
+                </script>
+
+        
+                </div>
+
+                <!-- modal footer -->
+                <div class="modal-footer">
+
+                    <button class="btn btn-outline-primary" data-dismiss="modal">Submit</button>
+                </div>
+
+            </div>
+        </div>
+
+    <!-- modal -->
+    </div>
 
     <!-- Modal for creating an account -->
-    <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    
-    <!-- modal header -->
-    <div class="modal-header">
-        <h5 class="modal-title">Create an account</h5>
-        <button class="close" data-dismiss="modal">&times;</button>
-    </div>
+    <div class="modal fade" id="create_mc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <!-- modal header -->
+                <div class="modal-header">
+                    <h5 class="modal-title header-font">Create an account...</h5>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-    <!-- modal body -->
-    <div class="modal-body">
-        <div class="row">
-        <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
-                    d-flex align-items-center justify-content-center">
+                <!-- modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                                d-flex align-items-center justify-content-center">
 
-                <a href="registration_page_student.php"
-                    class="stretched-link">I am a student</a>
+                            <a href="registration_page_student.php"
+                                class="stretched-link">I am a student</a>
+                    </div>
+
+                    <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+                                d-flex align-items-center justify-content-center">
+                        
+                        <a href="registration_page_professor.php"
+                            class="stretched-link">I am a professor</a>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger"
+                            data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
         </div>
-
-        <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
-                    d-flex align-items-center justify-content-center">
-            
-            <a href="registration_page_professor.php"
-                class="stretched-link">I am a professor</a>
-        </div>
-        </div>
-    </div>
-
-    <!-- modal footer -->
-    <div class="modal-footer">
-        <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-    </div>
-
-    </div>
-    </div>
 
     <!-- modal -->
     </div>
@@ -175,20 +297,249 @@
             <li class="nav-item">
             <a class="nav-link active" href="#overview">Overview</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#researchStudy">Research Study</a>
-            </li>
-            
+
             <li class="nav-item dropdown">
-            <a id="accountBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+            <a id="research" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Research Study</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#student" onclick="changeBtnTxt('accountBtn', 'Student')">Student</a>
-                <a class="dropdown-item" href="#professor" onclick="changeBtnTxt('accountBtn', 'Professor')">Professor</a>
+                <a class="dropdown-item" href="#researchUpload_mc" data-toggle="modal" data-backdrop="static" onclick="changeBtnTxt('research', 'Add Research Study')">Add Research Study</a>
+                <a class="dropdown-item" href="#researchStudy" onclick="changeBtnTxt('research', 'View Research Study')">View Research Study</a>
             </li>
-            
+
+            <li class="nav-item dropdown">
+                <a id="accountBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#student" onclick="changeBtnTxt('accountBtn', 'Student')">Student</a>
+                    <a class="dropdown-item" href="#professor" onclick="changeBtnTxt('accountBtn', 'Professor')">Professor</a>
+                </div>
+            </li>
         </ul>
 
-    
+        <!-- Modal -->
+        <div class="modal fade" id="researchUpload_mc" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable">
+
+                <!-- Modal header -->
+                <div class="modal-content">
+                    <div class="modal-title">
+
+                    <div class="modal-header">
+                        <div class="modal-title header-font">Coordinator is uploading thesis...</div>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    </div>
+
+                    <!-- Modal details -->
+
+                    <div class="modal-body">
+                    <!-- Make the title color black -->
+                    <!-- Make the hover color blue -->
+
+                    <div class="cfont cs-2"><?php echo $row['Title'] ?></div><!-- research title -->
+                    <br>
+
+
+                    <form id="rs_upload_form" action="rs_upload_page_function.php" method="post"
+                            class="needs-validation mx-auto mb-3"
+                            enctype="multipart/form-data">
+
+
+                        <!-- Note -->
+
+                        <p class="text-danger">Note: Once the information have been uploaded, it cannot be edited again.
+                            Please be sure to check the information you provided before you upload, thank you.
+                        </p>
+
+
+                        <!-- Title field -->
+
+                        <div class="form-group">
+                            <label for="form_title">Title:</label>
+
+                            <input type="text"
+                                    class="form-control"
+                                    id="form_title"
+                                    placeholder="Title"
+                                    name="form_title"
+                                    minlength="10"
+                                    maxlength="100"
+                                    onkeypress="validateInput('form_title', '10')"
+                                    required>
+
+                        </div>
+
+
+                        <!-- Author field -->
+
+                        <div class="form-group">
+                            <label for="form_author">Author:</label>
+                            <input type="text"
+                                    name="form_author"
+                                    id="form_author"
+                                    placeholder="Author"
+                                    class="form-control"
+                                    minlength="5"
+                                    maxlength="100"
+                                    onkeypress="validateInput('form_author', '5')"
+                                    required>
+
+                        </div>
+
+
+                        <!-- Year level field -->
+
+                        <div class="row mt-3 ml-1">
+                            <div class="form-group mr-1">
+                                <label for="form_year">Year level:</label>
+
+                                <select name="form_year"
+                                        id="form_year"
+                                        class="form-control
+                                                select-picker
+                                                border-muted"
+                                        onchange="validateInput('form_year', '')"
+                                        required>
+
+                                    <option value="">Choose year level</option>
+                                    <option value="1st year">1st year</option>
+                                    <option value="2nd year">2nd year</option>
+                                    <option value="3rd year">3rd year</option>
+                                    <option value="4th year">4th year</option>
+                                </select>
+
+
+                        </div>
+
+
+                        <!-- Course field -->
+
+
+                        <div class="form-group">
+                                <label for="form_course">Course:</label>
+
+                                <select name="form_course"
+                                        id="form_course"
+                                        class="form-control
+                                                select-picker
+                                                border-muted"
+                                        onchange="validateInput('form_course', '')"
+                                        required>
+
+                                    <option value="">Choose course</option>
+                                    <option value="bsit">BSIT</option>
+                                    <option value="educ">EDUC</option>
+                                </select>
+
+                        </div>
+
+
+                        <!-- Adviser field -->
+
+
+                        <div class="form-group">
+
+                            <label for="form_adviser">Adviser:</label>
+                            <input type="text"
+                                    name="form_adviser"
+                                    id="form_adviser"
+                                    placeholder="Adviser"
+                                    class="form-control"
+                                    maxlength="60"
+                                    minlength="5"
+                                    onkeypress="validateInput('form_adviser', '5')"
+                                    required>
+
+                        </div>
+                    
+
+                        <div class="form-group">
+
+                            <label for="form_keywords">Keywords:</label><br>
+                            <input type="text"
+                                    name="form_keywords"
+                                    id="form_keywords"
+                                    class="form-control p-n4"
+                                    style="border: #ff6666"
+                                    maxlength="60"
+                                    minlength="5"
+                                    placeholder="Keywords"
+                                    onkeypress="validateInput('form_keywords', '5')"
+                                    data-role="tagsinput"
+                                    required>
+
+                        </div>
+
+                        <!-- File -->
+
+                        <div class="custom-file form-group">
+                            <label for="form_file">File:</label>
+
+                            <input type="file"
+                                    name="form_file"
+                                    id="form_file"
+                                    class="custom-file-input form-control"
+                                    accept="application/pdf"
+                                    required>
+                            <label for="form_file" class="custom-file-label cmt-1">Choose file...</label>
+
+                            <!-- Script for adding the name of file to the label -->
+
+                            <script>
+                                $('#form_file').on('change', function(e){
+                                    // Get file name
+                                    var fileName = e.target.files[0].name;
+
+                                    // Replace the "Choose file..." label
+                                    $(this).next('.custom-file-label').html(fileName);
+
+                                })
+
+
+                            </script>
+                        </div>
+
+
+                        <!-- Abstract field -->
+
+                        <div class="form-group mt-3">
+                            <label for="form_abstract">Abstract:</label>
+                            <textarea name="form_abstract"
+                                    id="form_abstract"
+                                    placeholder="Abstract"
+                                    class="form-control min-height max-height"
+                                    onkeypress="validateInput('form_abstract', '10')"
+                                    rows="5"
+                                    minlength="10"
+                                    maxlength="500"
+                                    required
+                                    style="width: 28rem;"></textarea>
+                        </div>
+                        
+
+
+                    </form>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="submit"
+                                class="btn btn-outline-primary"
+                                data-dismiss="modal">Submit</button>
+
+                    </div>
+
+
+
+                <!-- modal header -->
+                </div>
+
+            <!-- modal dialog -->
+            </div>
+
+        <!-- modal -->
+        </div>
+
         
     <!-- padding -->   
     </div>
@@ -957,7 +1308,6 @@
 </div>
 
 <script src="../js/researchCoordinator_script.js"></script>
-
 
 </body>
 </html>

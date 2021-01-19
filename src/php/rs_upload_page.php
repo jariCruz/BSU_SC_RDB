@@ -297,7 +297,7 @@
 
                     <button class="btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                </div>
+                </div>  
             </div>
 
             <!-- Circles that indicates the steps of the form -->
@@ -312,9 +312,7 @@
 
         </form>
     </div>
-    <div id="showResults">
-
-    </div>
+    
 
 <!-- Script for form's validation -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -107,12 +107,13 @@ include "php/server.php";
 
               <?php if (!isset($_SESSION['user_id'])) {
               echo '<li class="nav-item">
-                <a class="nav-link" href="php/login.php">Sign in</a>
+                <a class="nav-link" href="#" data-toggle="modal"
+                    data-target="#signIn_mc">Sign in</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
-                    data-target="#myModal">Create account</a>
+                    data-target="#create_mc">Create account</a>
               </li>';
               }else {
                 echo '<li class="nav-item">
@@ -132,7 +133,7 @@ include "php/server.php";
   
 
     <!-- Modal for creating an account -->
-    <div class="modal fade" id="myModal">
+    <div class="modal fade" id="create_mc">
       <div class="modal-dialog">
         <div class="modal-content">
           
@@ -171,6 +172,126 @@ include "php/server.php";
 
     <!-- modal -->
     </div>
+
+    <!-- Modal for sign in -->
+    <div class="modal fade" id="signIn_mc">
+      <div class="modal-dialog">
+          <div class="modal-content">
+                  
+              <!-- modal header -->
+              <div class="modal-header">
+                  <h5 class="modal-title header-font">Someone is logging in...</h5>
+                  <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- modal body -->
+              <div class="modal-body">
+
+                  <form action="login_function.php" method="post"
+                          class="needs-validation
+                                  p-4 mx-auto mb-3">
+                      
+                      
+                      <!-- Forename field -->
+
+                      <div class="form-group">
+                          <label for="form_fname">Username:</label>
+                          
+                          <input type="text"
+                                  class="form-control"
+                                  id="form_uname"
+                                  placeholder="Username"
+                                  name="form_uname"
+                                  minlength="2"
+                                  maxlength="30"
+                                  required>                
+
+                      </div>
+
+                      <!-- Password field -->
+
+
+                      <div class="form-group mt-2">
+                          <label for="form_pass">Passsword:</label>
+                          <input type="password"
+                                  name="form_pass"
+                                  id="form_pass"
+                                  placeholder="Password"
+                                  class="form-control"
+                                  maxlength="30"
+                                  minlength="8"
+                                  required>
+
+                      </div>
+
+                      
+                      <!-- Checkbox -->
+                      
+                      
+                      <div class="row">
+                          <div class="form-group col">
+                              <input type="checkbox">
+                              <span>Remember me</span>
+                          </div>
+
+                          <!-- Register btn -->
+                          <div class="col d-flex justify-content-end">
+                              <button name="login-submit" id="login-submit" type="submit" class="btn btn-primary">Login</button>
+                          </div>
+                      
+                      </div>
+                      
+                      <span class="d-flex justify-content-center mt-3">Don't have an account yet?&MediumSpace;
+                          <a data-dismiss="modal" href="#" data-toggle="modal" data-target="#create_mc">Register here.</a>
+                      </span>
+
+                      <!-- just a freakin horizontal line -->            
+                      <hr class="bg-dark mt-4">
+
+                      <span class="d-flex justify-content-center">
+                          <a href="#">Forgot password?</a>
+                      </span>
+
+                  </form>
+              </div>
+
+              <!-- Form validation -->
+              <script>
+
+                  (function() {
+                  'use strict';
+                  window.addEventListener('load', function() {
+                  // Get the forms we want to add validation styles to
+                  var forms = document.getElementsByClassName('needs-validation');
+                  // Loop over them and prevent submission
+                  var validation = Array.prototype.filter.call(forms, function(form) {
+
+                  form.addEventListener('submit', function(event) {
+                      if (form.checkValidity() === false) {
+                      
+                      event.preventDefault();
+                      event.stopPropagation();
+                      }   
+                      form.classList.add('was-validated');
+                  }, false);
+                  });
+                  }, false);
+                  })();
+              </script>
+
+      
+              </div>
+
+              <!-- modal footer -->
+              <div class="modal-footer">
+
+                  <button class="btn btn-outline-primary" data-dismiss="modal">Submit</button>
+              </div>
+
+          </div>
+    </div>
+
+    
 
     <!-- body -->
 
