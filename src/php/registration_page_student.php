@@ -91,21 +91,6 @@
 
         </div>
 
-        <!-- Username field -->
-
-        <div class="form-group needs-validation">
-            <label for="form_user">Username:</label>
-            <input type="text"
-                    name="form_user"
-                    id="form_user"
-                    placeholder="Username"
-                    class="form-control"
-                    maxlength="30"
-                    minlength="8"
-                    required>
-
-        </div>
-
         <!-- Identification card -->
             
         <div class="custom-file form-group needs-validation">
@@ -280,7 +265,7 @@
 
         <!-- Register btn -->
         <div>
-            <button type="button" class="btn btn-primary" name="registerBtn" id="registerBtn" onclick="validate()">Register</button>
+            <button type="button" class="btn btn-primary" name="registerBtn" id="registerBtn" onclick="validate(); submitVal();">Register</button>
 
         </div>
 

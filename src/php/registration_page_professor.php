@@ -89,22 +89,6 @@
 
             </div>
 
-
-        <!-- Username field -->
-
-        <div class="form-group needs-validation">
-            <label for="form_user">Username:</label>
-            <input type="text"
-                    name="form_user"
-                    id="form_user"
-                    placeholder="Username"
-                    class="form-control"
-                    maxlength="30"
-                    minlength="8"
-                    required>
-
-        </div>
-
             <!-- Department field -->
             
 
@@ -255,7 +239,7 @@
 
             <!-- Register btn -->
             <div>
-                <button type="button" class="btn btn-primary"  name="registerBtn" id="registerBtn" onclick="validate()">Register</button>
+                <button type="button" class="btn btn-primary"  name="registerBtn" id="registerBtn" onclick="validate(); submitVal();">Register</button>
 
             </div>
             <span class="d-flex justify-content-center mt-3">Already have an account?<a href="login.php">&MediumSpace;Login here.</a></span>

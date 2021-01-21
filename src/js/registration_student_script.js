@@ -6,9 +6,7 @@ var inputs = document.getElementsByTagName("input");
 var selects = document.getElementsByTagName("select");
 
 function validate() {
-    var pass = document.getElementById("form_pass");
-    var r_pass = document.getElementById("form_repass");
-    console.log(pass);
+    console.log('validate function');
 
     for (var i = 0; i < inputs.length; i++) {
 
@@ -43,9 +41,15 @@ function validate() {
 
         }
     }
+}
+
+function submitVal() {
+    var pass = document.getElementById("form_pass").value;
+    var r_pass = document.getElementById("form_repass").value;
+    console.log('submitVal function');
     
     if (pass.length > 0 && r_pass.length > 0) {
-        if (pass.value != r_pass.value) {
+        if (pass != r_pass) {
             swal({
                 title: "Registration Failed!",
                 text: "Password and retype password is not the same!",
