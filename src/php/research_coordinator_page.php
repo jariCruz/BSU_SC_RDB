@@ -337,10 +337,11 @@ if (isset($_GET['query'])) {
             </li>
 
             <li class="nav-item dropdown">
-                <a id="accountBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+                <a id="accountBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Accounts</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#student" onclick="changeBtnTxt('accountBtn', 'Student')">Student</a>
                     <a class="dropdown-item" href="#professor" onclick="changeBtnTxt('accountBtn', 'Professor')">Professor</a>
+                    <a class="dropdown-item" href="#admin" onclick="changeBtnTxt('accountBtn', 'Admin')">Admin</a>
                 </div>
             </li>
         </ul>
@@ -923,10 +924,12 @@ if (isset($_GET['query'])) {
 
                     <!-- Filter Department -->
                     <label>Filter Course:</label>
-
+                    
+                    <br>
                     <input type="checkbox" id="bsit">
                     <label for="#bsit">BSIT</label>
 
+                    <br>
                     <input type="checkbox" id="educ">
                     <label for="#educ">EDUC</label>
 
@@ -1043,23 +1046,25 @@ if (isset($_GET['query'])) {
                         </div>
 
 
-                        <!-- Pagination -->
+                       
 
-                        <div class="container mt-3">
 
-                            <ul class="pagination justify-content-center">
+                    <!-- student account ends here -->
+                    </div>
+
+                     <!-- Pagination -->
+
+                     <div class="container mt-3">
+
+                        <ul class="pagination justify-content-center">
                             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
 
-                            </ul>
+                        </ul>
 
-                        </div>
-
-
-                    <!-- student account ends here -->
                     </div>
                     
 
@@ -1139,10 +1144,12 @@ if (isset($_GET['query'])) {
 
                     <!-- Filter Department -->
                     <label>Filter Department:</label>
-
+                    
+                    <br>
                     <input type="checkbox" id="bsit">
                     <label for="#bsit">BSIT</label>
-
+                    
+                    <br>
                     <input type="checkbox" id="educ">
                     <label for="#educ">EDUC</label>
 
@@ -1258,24 +1265,26 @@ if (isset($_GET['query'])) {
 
                         </div>
 
-                        <!-- Pagination -->
+                        
 
-                        <div class="container mt-3">
+                        
 
-                            <ul class="pagination justify-content-center">
+                    <!-- professor account ends here -->
+                    </div>
+
+                    <!-- Pagination -->
+
+                    <div class="container mt-3">
+
+                        <ul class="pagination justify-content-center">
                             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
 
-                            </ul>
+                        </ul>
 
-                        </div>
-
-                        
-
-                    <!-- professor account ends here -->
                     </div>
                     
 
@@ -1288,6 +1297,262 @@ if (isset($_GET['query'])) {
             </div>
 
         <!-- Professor tab -->
+        </div>
+
+        <!-- Admin tab -->
+        <div id="admin" class="container-fluid tab-pane fade"><br>
+            
+            <div class="row">
+
+                <!-- first column -->
+                <div class="col-sm-3">
+
+                    <p>5 Results</p>
+                    <hr>
+                    <!-- Sort name -->
+                    
+                    <label class="mb-5">Sort Name:</label>
+
+
+                    <div class="dropdown dropright
+                                sf-margin-left">
+                        <button class="btn btn-outline-secondary dropdown-toggle
+                                        mw-btn-150p"
+                                id="adminSort"
+                                data-toggle="dropdown">Select</button>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"
+                                onclick="changeBtnTxt('adminSort', 'Ascending')">Ascending</a>
+
+                            <a class="dropdown-item" href="#"
+                                onclick="changeBtnTxt('adminSort', 'Descending')">Descending</a>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <!-- Create account -->
+                    <label class="mr-2">Create account:</label>
+                    <button data-target="#createAdmin_mc" data-toggle="modal" class="btn btn-outline-primary">+</button>
+
+                    <!-- Modal for creating admin account -->
+                    <div class="modal fade" id="createAdmin_mc">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                                
+                            <!-- modal header -->
+                            <div class="modal-header">
+                                <h5 class="modal-title header-font">Creating admin...</h5>
+                                <button class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- modal body -->
+                            <div class="modal-body">
+
+                                <form action="php/login_function.php" method="post"
+                                        class="needs-validation
+                                                p-4 mx-auto mb-3">
+                                    
+                                    <!-- Name -->    
+                                    <div class="form-row">
+                                        
+                                        <!-- Forename field -->
+
+                                        <div class="form-group col-sm-5 needs-validation">
+                                            <label for="form_fname">Forename:</label>
+                                            
+                                            <input type="text"
+                                                    class="form-control"
+                                                    id="form_fname"
+                                                    placeholder="Forename"
+                                                    name="form_fname"
+                                                    minlength="2"
+                                                    maxlength="30"
+                                                    required>                    
+
+
+                                        </div>
+
+                                        <!-- Middle initial field -->
+
+                                        <div class="form-group col-sm-2 needs-validation">
+                                            <label for="form_mi">M.I.:</label>
+                                            <input type="text"
+                                                    name="form_mi"
+                                                    id="form_mi"
+                                                    placeholder="M.I."
+                                                    class="form-control"
+                                                    maxlength="5">
+
+                                        </div>
+
+                                        <!-- Surname field -->
+
+                                        <div class="form-group col-sm-5 needs-validation">
+
+                                            <label for="form_sname">Surname:</label>
+                                            <input type="text"
+                                                    name="form_sname"
+                                                    id="form_sname"
+                                                    placeholder="Surname"
+                                                    class="form-control"
+                                                    maxlength="30"
+                                                    minlength="1"
+                                                    required>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Username field -->
+
+                                    <div class="form-group">
+                                        <label for="form_fname">Username:</label>
+                                        
+                                        <input type="text"
+                                                class="form-control"
+                                                id="form_uname"
+                                                placeholder="Username"
+                                                name="form_uname"
+                                                minlength="2"
+                                                maxlength="30"
+                                                required>                
+
+                                    </div>
+
+                                    <!-- Password field -->
+
+
+                                    <div class="form-group mt-2">
+                                        <label for="form_pass">Passsword:</label>
+                                        <input type="password"
+                                                name="form_pass"
+                                                id="form_pass"
+                                                placeholder="Password"
+                                                class="form-control"
+                                                maxlength="30"
+                                                minlength="8"
+                                                required>
+
+                                    </div>
+
+                                    <!-- Retype Password field -->
+
+
+                                    <div class="form-group mt-2">
+                                        <label for="form_repass">Retype Passsword:</label>
+                                        <input type="repassword"
+                                                name="form_repass"
+                                                id="form_repass"
+                                                placeholder="Retype Password"
+                                                class="form-control"
+                                                maxlength="30"
+                                                minlength="8"
+                                                required>
+
+                                    </div>
+                                
+                                    <!-- Register btn -->
+                                    <div class="col d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Create</button>
+                                    </div>
+                                
+                                    
+
+                                </form>
+                            </div>
+
+                            <!-- Form validation -->
+                            <script>
+
+                                (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                // Get the forms we want to add validation styles to
+                                var forms = document.getElementsByClassName('needs-validation');
+                                // Loop over them and prevent submission
+                                var validation = Array.prototype.filter.call(forms, function(form) {
+
+                                form.addEventListener('submit', function(event) {
+                                    if (form.checkValidity() === false) {
+                                    
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                    }   
+                                    form.classList.add('was-validated');
+                                }, false);
+                                });
+                                }, false);
+                                })();
+                            </script>
+
+                    
+                            </div>
+
+                        </div>
+                    </div>
+
+                <!-- first column -->
+                </div>
+
+                <!-- second column -->
+                <div class="col-sm-7">
+
+                    <p>Admin account list...</p>
+                    <hr>
+                    
+                    <!-- professor account starts here -->
+                    <div class="row" id="border-bg">
+                        <div class="col-sm-8">
+
+
+                            <p>Name: MgWayre, Webster</p>
+                            <p>Username: Webster :D</p>
+
+
+                        </div>
+
+
+                        <!-- ********************************* -->
+                        <!--  Remove the two <br> tags below   -->
+                        <!-- when pending section isn't in use -->
+                        <!-- ********************************* -->
+
+                        <br>
+                        <br>
+
+
+                    <!-- admin account ends here -->
+                    </div>
+
+
+                    <!-- Pagination -->
+
+                    <div class="container mt-3">
+
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+
+                        </ul>
+
+                    </div>
+                    
+
+                <!-- second column -->
+                </div>
+
+                
+
+            <!-- row -->
+            </div>
+
+        <!-- Admin tab -->
         </div>
 
 
