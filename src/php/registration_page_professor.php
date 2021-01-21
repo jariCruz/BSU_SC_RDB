@@ -89,6 +89,22 @@
 
             </div>
 
+
+        <!-- Username field -->
+
+        <div class="form-group needs-validation">
+            <label for="form_user">Username:</label>
+            <input type="text"
+                    name="form_user"
+                    id="form_user"
+                    placeholder="Username"
+                    class="form-control"
+                    maxlength="30"
+                    minlength="8"
+                    required>
+
+        </div>
+
             <!-- Department field -->
             
 
