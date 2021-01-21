@@ -286,10 +286,6 @@ include "php/server.php";
       
               </div>
 
-              <!-- modal footer -->
-              <div class="modal-footer">
-              </div>
-
           </div>
     </div>
 
