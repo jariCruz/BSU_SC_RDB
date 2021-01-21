@@ -103,9 +103,12 @@ require "header.php";
                     data-target="#create_mc">Create account</a>
               </li>
               <?php }else { ?>
-              <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
-              </li>
+                <li class="nav-item">
+                  <form id="logout" action="logout.php" method="post">
+                  <a class="nav-link" href="javascript:;" onclick="document.getElementById('logout').submit();">Logout</a>
+                  <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" />
+                  </form>
+                </li>
               <?php } ?>
               
               
@@ -209,6 +212,7 @@ require "header.php";
                                   required>
 
                       </div>
+                      <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
 
                       
                       <!-- Checkbox -->
@@ -270,8 +274,6 @@ require "header.php";
 
               <!-- modal footer -->
               <div class="modal-footer">
-
-                  <button class="btn btn-outline-primary" data-dismiss="modal">Submit</button>
               </div>
 
           </div>

@@ -119,8 +119,7 @@ if (isset($_GET['query'])) {
 
             <!-- buttons for Log in and sign up -->
 
-            <?php if (!isset($_SESSION['user_id'])) {
-              echo '
+            <?php if (!isset($_SESSION['user_id'])) { ?>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
                   data-target="#signIn_mc">Sign in</a>
@@ -129,12 +128,15 @@ if (isset($_GET['query'])) {
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
                   data-target="#create_mc">Create account</a>
-              </li>';
-            }else {
-              echo '<li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
-              </li>';
-            } ?>
+              </li>
+            <?php }else {?>
+                <li class="nav-item">
+                  <form id="logout" action="logout.php" method="post">
+                  <a class="nav-link" href="javascript:;" onclick="document.getElementById('logout').submit();">Logout</a>
+                  <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" />
+                  </form>
+                </li>
+            <?php } ?>
 
 
           </ul>
@@ -189,7 +191,7 @@ if (isset($_GET['query'])) {
     </div>
 
 
-    <!-- Modal for creating an account -->
+    <!-- Modal for signing an account -->
     <div class="modal fade" id="signIn_mc">
       <div class="modal-dialog">
           <div class="modal-content">
@@ -239,6 +241,7 @@ if (isset($_GET['query'])) {
                                   required>
 
                       </div>
+                      <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
 
                       
                       <!-- Checkbox -->
@@ -300,8 +303,6 @@ if (isset($_GET['query'])) {
 
               <!-- modal footer -->
               <div class="modal-footer">
-
-                  <button class="btn btn-outline-primary" data-dismiss="modal">Submit</button>
               </div>
 
           </div>
@@ -440,13 +441,26 @@ if (isset($_GET['query'])) {
 
                     <a href="#" class="cLink">Author</a>
                     <p><?php echo $row["Author"] ?></p><!-- Author name -->
+                    <!-- show this when a user is logged in -->
+                    <?php if (isset($_SESSION['user_id'])) {?>
                       <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" 
                       onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')" 
-                      class="fa fa-download cLink"> Download</a>
+                      class="fa fa-download cLink"> Download</a><!-- Download button -->
                     
                       <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" 
                       onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')" 
                       class="fa fa-file cLink"> View PDF</a><!-- View button -->
+                    <?php }else { ?>
+                    <!-- show this when user isn't logged in -->
+                      <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" 
+                      onclick="needToLoginDownload()" 
+                      class="fa fa-download cLink"> Download</a><!-- Download button -->
+                    
+                      <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" 
+                      onclick="needToLoginView()" 
+                      class="fa fa-file cLink"> View PDF</a><!-- View button -->
+                    <?php } ?>
+
 
 
                     <!-- Modal -->
@@ -459,15 +473,27 @@ if (isset($_GET['query'])) {
 
                             <div class="modal-header">
                               <div class="btn-group">
-                                <!-- Download PDF -->
+                                <!-- Download PDF (logged in)-->
+                                <?php if (isset($_SESSION['user_id'])) {?>
                                 <button type="button" 
                                 onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')"
                                 class="btn btn-outline-dark fa fa-download"> Download</button><!-- Download button -->
                                 
-                                <!-- View PDF -->
+                                <!-- View PDF (logged in)-->
                                 <button type="submit" 
                                 onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')"
                                 class="btn btn-outline-dark fa fa-file"> View PDF</button><!-- View button -->
+                                <?php } else {?>
+                                <!-- Download PDF -->
+                                <button type="button" 
+                                onclick="needToLoginDownload()"
+                                class="btn btn-outline-dark fa fa-download"> Download</button><!-- Download button -->
+                                
+                                <!-- View PDF -->
+                                <button type="submit" 
+                                onclick="needToLoginView()"
+                                class="btn btn-outline-dark fa fa-file"> View PDF</button><!-- View button -->
+                                <?php } ?>
                                 
                               </div>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -552,9 +578,6 @@ if (isset($_GET['query'])) {
 
 
         <!-- Pagination -->
-        <?php
-
-        ?>
 
         <div class="container mt-3">
           <ul class="pagination justify-content-center">
@@ -616,7 +639,8 @@ if (isset($_GET['query'])) {
     </div>
 
   </footer>
-
+  <!-- Sweetalert js cdn -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Autocomplete -->
   <script>
     $(function() {
@@ -642,6 +666,7 @@ if (isset($_GET['query'])) {
       xmlhttp.send();
       window.open(url+'#toolbar=0','_blank', 'location=no');
     }
+
     //add count for downloads
     function addDownload(RS_ID, url) {
       var xmlhttp = new XMLHttpRequest();
@@ -655,6 +680,7 @@ if (isset($_GET['query'])) {
       window.open(url);
     }
   </script>
+  <script src="../js/needToLogin.js"></script>
 </body>
 
 </html>

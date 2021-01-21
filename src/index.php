@@ -105,8 +105,8 @@ include "php/server.php";
 
               <!-- buttons for Log in and sign up -->
 
-              <?php if (!isset($_SESSION['user_id'])) {
-              echo '<li class="nav-item">
+              <?php if (!isset($_SESSION['user_id'])) { ?>
+              <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
                     data-target="#signIn_mc">Sign in</a>
               </li>
@@ -114,12 +114,15 @@ include "php/server.php";
               <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal"
                     data-target="#create_mc">Create account</a>
-              </li>';
-              }else {
-                echo '<li class="nav-item">
-                  <a class="nav-link" href="php/logout.php">Logout</a>
-                </li>';
-              } ?>
+              </li>
+              <?php }else { ?>
+                <li class="nav-item">
+                  <form id="logout" action="php/logout.php" method="post">
+                  <a class="nav-link" href="javascript:;" onclick="document.getElementById('logout').submit();">Logout</a>
+                  <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" />
+                  </form>
+                </li>
+              <?php } ?>
               
               
             </ul>
@@ -187,7 +190,7 @@ include "php/server.php";
               <!-- modal body -->
               <div class="modal-body">
 
-                  <form action="login_function.php" method="post"
+                  <form action="php/login_function.php" method="post"
                           class="needs-validation
                                   p-4 mx-auto mb-3">
                       
@@ -223,6 +226,7 @@ include "php/server.php";
                                   required>
 
                       </div>
+                      <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
 
                       
                       <!-- Checkbox -->
@@ -284,8 +288,6 @@ include "php/server.php";
 
               <!-- modal footer -->
               <div class="modal-footer">
-
-                  <button class="btn btn-outline-primary" data-dismiss="modal">Submit</button>
               </div>
 
           </div>

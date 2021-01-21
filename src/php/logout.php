@@ -11,7 +11,8 @@ session_unset();
 
 // destroy the session
 session_destroy();
-header("Location: ../index.php");
+$location = $_POST['redirect'];//link to redirect
+header("Location: $location");
 ?>
 
 </body>
