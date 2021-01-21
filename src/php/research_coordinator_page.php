@@ -1,6 +1,24 @@
 <?php
-    require "header.php";
-    include "server.php";
+require "header.php";
+include "server.php";
+//paginationsht
+if (isset($_GET['page'])) {
+  $page = $_GET['page'];
+} else {
+  $page = 1;
+}
+//limit kung ilan gusto mo i display
+$limit = 5;
+//saan mag sisimula ung i display mo
+$start = ($page - 1) * $limit;
+
+
+if (isset($_GET['query'])) {
+  $search = $_GET['query'];
+} else {
+  $search = '';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +48,7 @@
     <!-- Other resources -->
     <link rel="stylesheet" href="../css/research_coordinator_style.css">
     <link rel="stylesheet" href="../css/jumbotron_style.css">
+    <script src="../js/researchCoordinator_script.js"></script>
 
 
 </head>
@@ -347,9 +366,6 @@
                     <!-- Make the title color black -->
                     <!-- Make the hover color blue -->
 
-                    <div class="cfont cs-2"><?php echo $row['Title'] ?></div><!-- research title -->
-                    <br>
-
 
                     <form id="rs_upload_form" action="rs_upload_page_function.php" method="post"
                             class="needs-validation mx-auto mb-3"
@@ -504,7 +520,7 @@
                                     // Replace the "Choose file..." label
                                     $(this).next('.custom-file-label').html(fileName);
 
-                                })
+                                });
 
 
                             </script>
