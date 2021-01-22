@@ -5,40 +5,70 @@ if (isset($_POST['login-submit'])) {
     $username = $_POST['form_uname'];//username from login form
     $password = $_POST['form_pass'];//password from login form
     $location = $_POST['redirect'];//link to redirect
+    //IDs'
+    $student_id = '';
+    $professor_id = '';
+    $admin_id = 0;
+    //usernames
+    $student_user = '';
+    $professor_user = '';
+    $admin_user = 0;
+    //passwords
+    $student_pass = '';
+    $professor_pass = '';
+    $admin_pass = 0;
 
     //student login info
     $sql1 = "SELECT student_id, student_username, student_password FROM student_table WHERE student_username = '$username'";
-    $result1 = $conn->query($sql1);
     //professor login info
     $sql2 = "SELECT professor_id, professor_username, professor_password FROM professor_table WHERE professor_username = '$username'";
-    $result2 = $conn->query($sql2);
     //admin login info
     $sql3 = "SELECT admin_id, admin_username, admin_password FROM admin_table WHERE admin_username = '$username'";
-    $result3 = $conn->query($sql3);
 
 
-    $row1 = $result1->fetch_assoc();
-    $row2 = $result2->fetch_assoc();
-    $row3 = $result3->fetch_assoc();
-    if ($username === $row1['student_username'] && md5($password) === $row1['student_password']) {
+    if($result1 = $conn->query($sql1)){
+        while($row1 = $result1->fetch_assoc()){
+            $student_user = $row1['student_username'];
+            $student_pass = $row1['student_password'];
+            $student_id = $row1['student_id'];
+        }
+    }
+
+    if($result2 = $conn->query($sql2)){
+        while($row2 = $result2->fetch_assoc()){
+            $professor_user = $row2['professor_username'];
+            $professor_pass = $row2['professor_password'];
+            $professor_id = $row2['professor_id'];
+        }
+    }
+
+    if($result3 = $conn->query($sql3)){
+        while($row3 = $result3->fetch_assoc()){
+            $admin_user = $row3['admin_username'];
+            $admin_pass = $row3['admin_password'];
+            $admin_id = $row3['admin_id'];
+        }
+    }
+
+    if ($username === $student_user && md5($password) === $student_pass) {
         session_start();
-        $_SESSION['user_id'] = $row1['student_id'];
+        $_SESSION['user_id'] = $student_id;
         $_SESSION['user'] = "Student";
         header("Location: $location");
 
     } 
-    elseif ($username === $row2['professor_username'] && md5($password) === $row2['professor_password']) {
+    elseif ($username === $professor_user && md5($password) === $professor_pass) {
         session_start();
-        $_SESSION['user_id'] = $row2['professor_id'];
+        $_SESSION['user_id'] = $professor_id;
         $_SESSION['user'] = "Professor";
         header("Location: $location");
     } 
-    elseif ($username === $row3['admin_username'] && md5($password) === $row3['admin_password']) {
+    elseif ($username === $admin_user && md5($password) === $admin_pass) {
         session_start();
-        $_SESSION['user_id'] = $row3['admin_id'];
+        $_SESSION['user_id'] = $admin_id;
         $_SESSION['user'] = "Admin";
         header("Location:../php/research_coordinator_page.php");
     }else {
-        header("Location: ../index.php?Error");
+        echo 'error';
     }
 }
