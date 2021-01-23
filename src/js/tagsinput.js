@@ -5,7 +5,6 @@ var input = document.querySelector('input[name=basic]');
     // initialize Tagify on the above input node reference
     tagify = new Tagify(input, {
         /* Whitelist is a predefined words for keywords */
-        whitelist : ['aaa', 'aaab'],
         pattern: /^.{3,15}$/,
         keepInvalidTags: false,
         maxTags: 5,
