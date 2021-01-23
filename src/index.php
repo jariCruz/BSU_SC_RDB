@@ -36,8 +36,8 @@ include "php/server.php";
 
   <!-- Other resources -->
   <link rel="stylesheet" href="css/index_style.css">
-  <!-- I really dunno wuts happening here but let it be for now -->
-  <link rel="stylesheet" href="css/contact_style.css">
+  <link rel="stylesheet" href="css/responsive_style.css">
+
 
 </head>
 
@@ -55,11 +55,11 @@ include "php/server.php";
 
           <div>
             <div class="header-font">
-              <a class="navbar-brand" href="#">Research DB</a>
+              <a class="navbar-brand" href="index.php">Research DB</a>
             </div>
 
             <div class="mt-n3">
-              <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+              <span class="navbar-text sm-hide">Bulacan State University - Sarmiento Campus</span>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ include "php/server.php";
           
           <!-- modal header -->
           <div class="modal-header">
-            <h5 class="modal-title">Create an account</h5>
+            <h5 class="modal-title header-font">Create an account...</h5>
             <button class="close" data-dismiss="modal">&times;</button>
           </div>
 
@@ -167,7 +167,7 @@ include "php/server.php";
 
           <!-- modal footer -->
           <div class="modal-footer">
-            <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+            <button class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
           </div>
 
         </div>
@@ -192,7 +192,7 @@ include "php/server.php";
 
                   <form action="php/login_function.php" method="post"
                           class="needs-validation
-                                  p-4 mx-auto mb-3">
+                                  mx-auto mb-3">
                       
                       
                       <!-- Forename field -->
@@ -294,22 +294,22 @@ include "php/server.php";
     <!-- body -->
 
     <div class="container-fluid">
-      <div class="display-5" style="margin-top: 13%; margin-left: 8%">
-        <h1 class="header-font">Welcome to RSDB</h1>
+      <div class="display-5 lg-margin sm-margin">
+        <h1 class="header-font sm-font-size">Welcome to RSDB</h1>
         <p style="font-size:larger">Search the knowledge hidden within</p>
 
         <!-- Search form -->
         <form action="php/search_page.php" method="get">
-          <div class="input-group mb-3 mt-4" style="width: 50%;">
+          <div class="input-group mb-3 mt-4 sm-width l-width">
           <!-- Search button -->
             <div class="input-group-prepend">
-              <button class="btn btn-outline-primary"
+              <button class="btn btn-outline-primary sm-btn-font-size"
                         type="submit">Search</button>
             </div>
               <!-- Search input -->
               <input type="hidden" name="page" value="1">
-              <input type="text" class="form-control" id="search-input" name="query" autocomplete="off"
-                      style="background-color: transparent;" placeholder="Search for articles..." required>
+              <input type="text" class="form-control bg-transparent sm-width" id="search-input" name="query" autocomplete="off"
+                      placeholder="Search for articles..." required>
           </div>
         </form>
         <div id="results"><!-- Search results --></div>
@@ -320,11 +320,9 @@ include "php/server.php";
         <div class="container-fluid">
           <div class="row">
 
-            <div>
-              <h6>Popular Search:</h6>
-            </div>
+            <h6>Popular Search:</h6>
 
-
+            
             <div class="ml-2">
               <a href="#">Fiction</a>
             </div>
@@ -368,7 +366,7 @@ include "php/server.php";
 
     <div class="container">
       <div class="row">
-        <div class="col-8 ft">
+        <div class="col-md-8 ft">
           <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
             We use cookies to help provide and enhance our service and tailor content.<br>
             By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
@@ -385,7 +383,7 @@ include "php/server.php";
           </div>
         </div>
 
-        <div class="col-4" style="margin-top: -1%">
+        <div class="col-md-4 l-mt sm-mt">
           <span>Follow us on:</span><br>
 
           <span class="fa fa-facebook-official sl"></span>

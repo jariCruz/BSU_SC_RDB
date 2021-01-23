@@ -56,3 +56,10 @@ div.modal-hover:hover {
     background-color: #000000;
   
 }
+
+/* Search input background transparent */
+
+.bg-transparent {
+
+    background-color: transparent;
+}

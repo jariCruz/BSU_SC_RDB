@@ -28,6 +28,7 @@ require "header.php";
 
     <!-- Other resources -->
     <link rel="stylesheet" href="../css/about_style.css">
+    <link rel="stylesheet" href="../css/responsive_style.css">
     <link rel="stylesheet" href="../css/jumbotron_style.css">
     
 
@@ -43,11 +44,11 @@ require "header.php";
 
           <div>
             <div class="header-font">
-              <a class="navbar-brand" href="#">Research DB</a>
+              <a class="navbar-brand" href="../index.php">Research DB</a>
             </div>
 
             <div class="mt-n3">
-              <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+              <span class="navbar-text sm-hide">Bulacan State University - Sarmiento Campus</span>
             </div>
           </div>
 
@@ -127,7 +128,7 @@ require "header.php";
           
           <!-- modal header -->
           <div class="modal-header">
-            <h5 class="modal-title">Create an account</h5>
+            <h5 class="modal-title header-font">Create an account...</h5>
             <button class="close" data-dismiss="modal">&times;</button>
           </div>
 
@@ -152,7 +153,7 @@ require "header.php";
 
           <!-- modal footer -->
           <div class="modal-footer">
-            <button class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+            <button class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
           </div>
 
         </div>
@@ -178,7 +179,7 @@ require "header.php";
 
                   <form action="login_function.php" method="post"
                           class="needs-validation
-                                  p-4 mx-auto mb-3">
+                                  mx-auto mb-3">
                       
                       
                       <!-- Forename field -->
@@ -272,10 +273,6 @@ require "header.php";
       
               </div>
 
-              <!-- modal footer -->
-              <div class="modal-footer">
-              </div>
-
           </div>
     </div>
 
@@ -292,7 +289,7 @@ require "header.php";
                   border-right-0">
 
       
-      <h4 id="greetings-size" class="header-font text-right">About Us~ ⑉ႣỏႣ⑉</h4>
+      <h4 id="greetings-size" class="header-font text-right">About Us</h4>
       
 
   </div>
@@ -329,40 +326,41 @@ require "header.php";
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="p-3">
+<!-- Footer -->
 
-    <div class="container">
-      <div class="row">
-        <div class="col-8 p-3">
-          <p>Copyright © 2020 Research DB. All rights reserved.<br>
-            We use cookies to help provide and enhance our service and tailor content.<br>
-            By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
+<footer class="border-top-2 pb-4">
 
-          <div class="mt-n3">
-            <a href="#">Copyright</a>
-            <span class="px-3">|</span>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 ft">
+      <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
+        We use cookies to help provide and enhance our service and tailor content.<br>
+        By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
 
-            <a href="#">Terms of Use</a>
-            <span class="px-3">|</span>
+      <div style="margin-top: -4%;">
+        <a href="#">Copyright</a>
+        <span class="px-3">|</span>
 
-            <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <span class="px-3">|</span>
 
-          </div>
-        </div>
-
-        <div class="col-4 p-3">
-          <span>Follow us on:</span><br>
-
-          <span class="fa fa-facebook-official sl"></span>
-          <span class="fa fa-instagram sl px-3"></span>
-          <span class="fa fa-twitter-square sl"></span>
-        </div>
+        <a href="#">Privacy Policy</a>
 
       </div>
     </div>
 
-  </footer>
+    <div class="col-md-4 l-mt sm-mt">
+      <span>Follow us on:</span><br>
+
+      <span class="fa fa-facebook-official sl"></span>
+      <span class="fa fa-instagram sl px-3"></span>
+      <span class="fa fa-twitter-square sl"></span>
+    </div>
+
+  </div>
+</div>
+
+
 
 
     

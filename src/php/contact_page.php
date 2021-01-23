@@ -26,6 +26,7 @@
 
     <!-- Other resources -->
     <link rel="stylesheet" href="../css/contact_style.css">
+    <link rel="stylesheet" href="../css/responsive_style.css">
     <link rel="stylesheet" href="../css/jumbotron_style.css">
 
 
@@ -40,11 +41,11 @@
 
           <div>
             <div class="header-font">
-              <a class="navbar-brand" href="#">Research DB</a>
+              <a class="navbar-brand" href="../index.php">Research DB</a>
             </div>
 
             <div class="mt-n3">
-              <span class="navbar-text">Bulacan State University - Sarmiento Campus</span>
+              <span class="navbar-text sm-hide">Bulacan State University - Sarmiento Campus</span>
             </div>
           </div>
 
@@ -177,7 +178,7 @@
 
                   <form action="login_function.php" method="post"
                           class="needs-validation
-                                  p-4 mx-auto mb-3">
+                                  mx-auto mb-3">
                       
                       
                       <!-- Forename field -->
@@ -271,10 +272,6 @@
       
               </div>
 
-              <!-- modal footer -->
-              <div class="modal-footer">
-              </div>
-
           </div>
     </div>
 
@@ -291,7 +288,7 @@
                   border-right-0">
 
       
-      <h4 id="greetings-size" class="header-font text-right">Contact Us~ ⑉ႣỏႣ⑉</h4>
+      <h4 id="greetings-size" class="header-font text-right">Contact Us</h4>
       
 
   </div>
@@ -299,7 +296,7 @@
   <!-- Content -->
   <div class="container-fluid row">
     <!-- First column -->
-    <div class="col-md-4 ml-md-5 mr-md-5 mb-5 p-5">
+    <div class="col-lg-4 ml-md-5 mr-md-5 mb-5 p-5">
 
         <h5 class="header-font subtitle-size-1">How to Find Us</h5>
         <p>If you have any questions, just fill out the contact form
@@ -314,7 +311,7 @@
     </div>
 
     <!-- Second column -->
-    <div class="col-md-5 ml-md-5 p-5">
+    <div class="col-lg-5 ml-md-5 p-5">
         <h5 class="header-font subtitle-size-1">Get in Touch</h5>
         <form action="#">
             <label class="mt-3" for="contact_us_name">Name:</label>
@@ -350,16 +347,17 @@
   </div>
 
   <!-- Footer -->
-  <footer class="p-3">
+
+  <footer class="border-top-2 pb-4 mt-5">
 
     <div class="container">
       <div class="row">
-        <div class="col-8 p-3">
-          <p>Copyright © 2020 Research DB. All rights reserved.<br>
+        <div class="col-md-8 ft">
+          <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
             We use cookies to help provide and enhance our service and tailor content.<br>
             By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
 
-          <div class="mt-n3">
+          <div style="margin-top: -4%;">
             <a href="#">Copyright</a>
             <span class="px-3">|</span>
 
@@ -371,7 +369,7 @@
           </div>
         </div>
 
-        <div class="col-4 p-3">
+        <div class="col-md-4 l-mt sm-mt">
           <span>Follow us on:</span><br>
 
           <span class="fa fa-facebook-official sl"></span>
