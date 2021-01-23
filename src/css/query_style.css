@@ -2,12 +2,12 @@
 *     Search page       *
 ************************/
 
+/* Max width for search input */
+.mw-40rem {
 
-/* Width for search bar */
-.cSearch-width {
-    width: 50%;
-  
+  max-width: 40rem;
 }
+
 
 /* Grey background color */
 .bg-muted {
@@ -95,6 +95,9 @@ div.modal-hover:hover {
 
 /* Footer */
 
-.mt-bottom {
-  margin-top: 10%;
+
+.mt-footer {
+  margin-top: 10rem;
 }
+
+
