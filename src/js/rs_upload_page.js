@@ -15,59 +15,6 @@ function validateInput(n, min) {//min is for the length that is accepted
 }
 // end of individual notification
 
-//show the current tab
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-function showTab(n) {
-  // This function will display the specified tab of the form
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  // ...and fix the prev/next buttons
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  // ...and run a function that will display the correct step indicator
-  fixStepIndicator(n);
-}
-//end of the current tab
-
-//nextPrev button function
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  if (n == 1 && !validateForm()) return true;
-  // Hide the current tab
-  x[currentTab].style.display = "none";
-  // Increase or decrease current tab by 1
-  currentTab = currentTab + n;
-  // If you have reached the end of the form
-  if (currentTab >= x.length) {
-    // the form gets submitted  
-    swal({
-      title: "Registration Success!",
-      text: "Click OK to return in research coordinator page",
-      icon: "success",
-      button: true,
-    })
-    .then((ok)=>{
-        if (ok) {
-          document.getElementById("rs_upload_form").submit();
-        }else {
-            false;
-        }
-    });
-  }
-  // Otherwise display the correct tab
-  showTab(currentTab);
-}
-//end of previous and next tab buttons
 
 // validate if all fields have met required values
 function validateForm() {
@@ -131,13 +78,4 @@ function validateForm() {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
   return valid;
-}
-function fixStepIndicator(n) {
-  // Remove the "active" class on all steps
-  var x = document.getElementsByClassName("step");
-  for (var i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  // Add the current "active" class on the current step
-  x[n].className += " active";
 }
