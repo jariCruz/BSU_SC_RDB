@@ -18,28 +18,27 @@ function validateInput(n, min) {//min is for the length that is accepted
 
 // validate if all fields have met required values
 function validateForm() {
-  var valid = true;
+
   var i = 0;
-  var divTab = document.getElementsByClassName("tab");
   // Child nodes
-  var cnInput = divTab[currentTab].getElementsByTagName("input");//current tab input field
-  var cnSelect = divTab[currentTab].getElementsByTagName("select");//current tab select field
-  var cnTextarea = divTab[currentTab].getElementsByTagName("textarea");//current tab textarea field
+  var tag_Input = getElementsByTagName("input");//current input field
+  var tag_Select = getElementsByTagName("select");//current select field
+  var tag_Textarea = getElementsByTagName("textarea");//current textarea field
 
 
 
-  // A loop that check every input field in the current tab
+  // A loop that check every input field
 
-  for (i; i < cnInput.length; i++) {
+  for (i; i < tag_Input.length; i++) {
 
-    var inputLen = cnInput[i].getAttribute("minlength");
-    var cnInputLen = cnInput[i].value.length;
+    var inputLen = tag_Input[i].getAttribute("minlength");
+    var tag_InputLen = tag_Input[i].value.length;
 
     // if a field is empty...
-    if (cnInputLen < inputLen) {
+    if (tag_InputLen < inputLen) {
 
       // adds an invalid class to the parent node
-      cnInput[i].parentElement.className += " was-validated";
+      tag_Input[i].parentElement.className += " was-validated";
       // and set the current valid status to false
       valid = false;
     }
@@ -47,35 +46,31 @@ function validateForm() {
   }
   //end loop for input field
 
-  // A loop that check every select field in the current tab
-  for (i = 0; i < cnSelect.length; i++) {
+  // A loop that check every select field
+  for (i = 0; i < tag_Select.length; i++) {
     // if a field is empty...
-    if (cnSelect[i].selectedIndex == 0) {
+    if (tag_Select[i].selectedIndex == 0) {
       // adds an invalid class to the parent node
-      cnSelect[i].parentElement.className += " was-validated";
+      tag_Select[i].parentElement.className += " was-validated";
       // and set the current valid status to false
       valid = false;
     }
   }
   //end loop for select field
 
-  // A loop that check every textarea field in the current tab
-  for (i = 0; i < cnTextarea.length; i++) {
+  // A loop that check every textarea field
+  for (i = 0; i < tag_Textarea.length; i++) {
 
-    var textareaLen = cnTextarea[i].getAttribute("minlength");
-    var cnTextareaLen = cnTextarea[i].value.length;
+    var textareaLen = tag_Textarea[i].getAttribute("minlength");
+    var tag_TextareaLen = tag_Textarea[i].value.length;
     // if a field is empty...
-    if (cnTextareaLen < textareaLen) {
+    if (tag_TextareaLen < textareaLen) {
       // adds an invalid class to the parent node
-      cnTextarea[i].parentElement.className += " was-validated";
+      tag_Textarea[i].parentElement.className += " was-validated";
       // and set the current valid status to false
       valid = false;
     }
   }
   //end loop for textarea field
 
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid;
 }
