@@ -279,29 +279,31 @@ if (isset($_GET['query'])) {
                 <!-- modal body -->
                 <div class="modal-body">
                     <div class="row">
-                    <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
-                                d-flex align-items-center justify-content-center">
+                               <!-- Student -->            
+                        <div class="col mt-n3 mb-n3 modal-hover modal-height
+                                    d-flex align-items-center justify-content-center">
 
-                            <a href="registration_page_student.php"
-                                class="stretched-link">I am a student</a>
-                    </div>
+                                <a href="registration_page_student.php"
+                                    class="stretched-link">Student</a>
+                        </div>
 
-                    <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
-                                d-flex align-items-center justify-content-center">
-                        
-                        <a href="registration_page_professor.php"
-                            class="stretched-link">I am a professor</a>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- modal footer -->
-                <div class="modal-footer">
-                    <button class="btn btn-outline-danger sm-btn-font-size"
-                            data-dismiss="modal">Close</button>
-                </div>
+                        <!-- Professor -->
+                        <div class="col mt-n3 mb-n3 modal-hover modal-height
+                                    d-flex align-items-center justify-content-center">
+                            
+                            <a href="registration_page_professor.php"
+                                class="stretched-link">Professor</a>
+                        </div>
+                  </div>
 
             </div>
+
+            <!-- modal footer -->
+            <div class="modal-footer">
+                <button class="btn btn-outline-danger sm-btn-font-size"
+                        data-dismiss="modal">Close</button>
+            </div>
+            
         </div>
 
     <!-- modal -->

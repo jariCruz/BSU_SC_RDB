@@ -38,6 +38,9 @@ include "php/server.php";
   <link rel="stylesheet" href="css/index_style.css">
   <link rel="stylesheet" href="css/responsive_style.css">
 
+  <!-- Font size not working without these >_< -->
+  <link rel="stylesheet" href="css/contact_style.css">  
+
 
 </head>
 
@@ -142,26 +145,31 @@ include "php/server.php";
           
           <!-- modal header -->
           <div class="modal-header">
-            <h5 class="modal-title header-font">Create an account...</h5>
+            <h5 class="modal-title header-font">Create an account for...</h5>
             <button class="close" data-dismiss="modal">&times;</button>
           </div>
 
           <!-- modal body -->
           <div class="modal-body">
             <div class="row">
-              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+
+
+            <!-- Student -->            
+              <div class="col mt-n3 mb-n3 modal-hover modal-height
                           d-flex align-items-center justify-content-center">
 
                     <a href="php/registration_page_student.php"
-                        class="stretched-link">I am a student</a>
+                        class="stretched-link">Student</a>
               </div>
 
-              <div class="col-6 mt-n3 mb-n3 modal-hover modal-height
+            <!-- Professor -->
+              <div class="col mt-n3 mb-n3 modal-hover modal-height
                           d-flex align-items-center justify-content-center">
                 
                   <a href="php/registration_page_professor.php"
-                      class="stretched-link">I am a professor</a>
+                      class="stretched-link">Professor</a>
               </div>
+              
             </div>
           </div>
 
