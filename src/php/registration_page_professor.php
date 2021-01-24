@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/registration_professor_style.css">
+    <link rel="stylesheet" href="../css/registration_style.css">
 
 </head>
 <body>
@@ -245,8 +245,7 @@
             <span class="d-flex justify-content-center mt-3">Already have an account?<a href="login.php">&MediumSpace;Login here.</a></span>
                 
             <hr>
-            <a class="d-flex justify-content-center my-n3 pt-1"
-                href="registration_page_student.php">Register as a student</a>
+            <p class="d-flex justify-content-center my-n3 pt-1">Register as a&MediumSpace;<a href="registration_page_student.php">student</a>&MediumSpace;instead.</p>
 
     
         </form>

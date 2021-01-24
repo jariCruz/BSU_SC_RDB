@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
 
     <!-- Other resources -->
-    <link rel="stylesheet" href="../css/registration_student_style.css">
+    <link rel="stylesheet" href="../css/registration_style.css">
 
 </head>
 <body>
@@ -120,36 +120,44 @@
             </script>                    
         </div>
 
-            <!-- Back -->
-            <div class="custom-file form-group needs-validation">
-                
-                <input type="file"
-                        name="form_file2"
-                        id="form_file2"
-                        class="custom-file-input"
-                        accept="image/*"
-                        required>
-                <label for="form_file2" class="custom-file-label back mt-2">Back</label>
-
-                <!-- Script for adding the name of file to the label -->
-                
-                <script>
-                    $('#form_file2').on('change', function(e){
-                        // Get file name
-                        var fileName = e.target.files[0].name;
-
-                        // Replace the "Choose file..." label
-                        $(this).next('.back').html(fileName);
-                    })
-
-
-                </script>
+        <!-- Back -->
+        <div class="custom-file form-group needs-validation">
             
-            </div>
+            <input type="file"
+                    name="form_file2"
+                    id="form_file2"
+                    class="custom-file-input"
+                    accept="image/*"
+                    required>
+            <label for="form_file2" class="custom-file-label back mt-2">Back</label>
+
+            <!-- Script for adding the name of file to the label -->
+            
+            <script>
+                $('#form_file2').on('change', function(e){
+                    // Get file name
+                    var fileName = e.target.files[0].name;
+
+                    // Replace the "Choose file..." label
+                    $(this).next('.back').html(fileName);
+                })
+
+
+            </script>
+        
+        </div>
+
+        <!-- Checkbox for alumnus -->
+        <div class="form-group mt-4">
+            <input type="checkbox">
+            <span>I am an alumnus.</span>
+
+
+        </div>
 
         <!-- Year level field -->
 
-        <div class="row mt-3 ml-1">
+        <div class="row ml-1">
             <div class="form-group mr-1 needs-validation">
                     <label for="form_year">Year level:</label>
 
@@ -254,8 +262,10 @@
                     required>
 
         </div>
+
+
         
-        <!-- Checkbox -->
+        <!-- Checkbox for terms of service and privacy policy -->
         <div class="form-group">
             <input type="checkbox" required>
             <span>I accept the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>.</span>
@@ -272,8 +282,7 @@
         <span class="d-flex justify-content-center mt-3">Already have an account?<a href="login.php">&MediumSpace;Login here.</a></span>
             
         <hr>
-        <a class="d-flex justify-content-center my-n3 pt-1"
-            href="registration_page_professor.php">Register as a professor</a>
+        <p class="d-flex justify-content-center my-n3 pt-1">Register as a&MediumSpace;<a href="registration_page_professor.php">professor</a>&MediumSpace;instead.</p>
 
 
     </form>
@@ -281,7 +290,7 @@
 
 <!-- Form validation -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../js/registration_student_script.js"></script>
+<script src="../js/registration_script.js"></script>
 
 </body>
 </html>
