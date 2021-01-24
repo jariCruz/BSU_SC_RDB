@@ -123,21 +123,19 @@ if (isset($_GET['query'])) {
 
             <?php if (!isset($_SESSION['user_id'])) { ?>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal"
-                  data-target="#signIn_mc">Sign in</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signIn_mc">Sign in</a>
               </li>
-  
+
               <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal"
-                  data-target="#create_mc">Create account</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#create_mc">Create account</a>
               </li>
-            <?php }else {?>
-                <li class="nav-item">
-                  <form id="logout" action="logout.php" method="post">
+            <?php } else { ?>
+              <li class="nav-item">
+                <form id="logout" action="logout.php" method="post">
                   <a class="nav-link" href="javascript:;" onclick="document.getElementById('logout').submit();">Logout</a>
                   <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]) ?>" />
-                  </form>
-                </li>
+                </form>
+              </li>
             <?php } ?>
 
 
@@ -151,164 +149,146 @@ if (isset($_GET['query'])) {
 
 
 
-    <!-- Modal for creating an account -->
-    <div class="modal fade" id="create_mc">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          
-          <!-- modal header -->
-          <div class="modal-header">
-            <h5 class="modal-title header-font">Create an account for...</h5>
-            <button class="close" data-dismiss="modal">&times;</button>
-          </div>
+  <!-- Modal for creating an account -->
+  <div class="modal fade" id="create_mc">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-          <!-- modal body -->
-          <div class="modal-body">
-            <div class="row">
-              
-              <!-- Student -->            
-              <div class="col mt-n3 mb-n3 modal-hover modal-height
+        <!-- modal header -->
+        <div class="modal-header">
+          <h5 class="modal-title header-font">Create an account for...</h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- modal body -->
+        <div class="modal-body">
+          <div class="row">
+
+            <!-- Student -->
+            <div class="col mt-n3 mb-n3 modal-hover modal-height
               d-flex align-items-center justify-content-center">
 
-                <a href="registration_page_student.php"
-                    class="stretched-link">Student</a>
-              </div>
+              <a href="registration_page_student.php" class="stretched-link">Student</a>
+            </div>
 
             <!-- Professor -->
-              <div class="col mt-n3 mb-n3 modal-hover modal-height
+            <div class="col mt-n3 mb-n3 modal-hover modal-height
                           d-flex align-items-center justify-content-center">
-                
-                  <a href="registration_page_professor.php"
-                      class="stretched-link">Professor</a>
+
+              <a href="registration_page_professor.php" class="stretched-link">Professor</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- modal footer -->
+        <div class="modal-footer">
+          <button class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- modal -->
+  </div>
+
+
+  <!-- Modal for signing an account -->
+  <div class="modal fade" id="signIn_mc">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- modal header -->
+        <div class="modal-header">
+          <h5 class="modal-title header-font">Someone is logging in...</h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- modal body -->
+        <div class="modal-body">
+
+          <form action="login_function.php" method="post" class="needs-validation
+                                  mx-auto mb-3">
+
+
+            <!-- Forename field -->
+
+            <div class="form-group">
+              <label for="form_fname">Username:</label>
+
+              <input type="text" class="form-control" id="form_uname" placeholder="Username" name="form_uname" minlength="2" maxlength="30" required>
+
+            </div>
+
+            <!-- Password field -->
+
+
+            <div class="form-group mt-2">
+              <label for="form_pass">Passsword:</label>
+              <input type="password" name="form_pass" id="form_pass" placeholder="Password" class="form-control" maxlength="30" minlength="8" required>
+
+            </div>
+            <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
+
+
+            <!-- Checkbox -->
+
+
+            <div class="row">
+              <div class="form-group col">
+                <input type="checkbox">
+                <span>Remember me</span>
+              </div>
+
+              <!-- Register btn -->
+              <div class="col d-flex justify-content-end">
+                <button name="login-submit" id="login-submit" type="submit" class="btn btn-primary">Login</button>
               </div>
 
             </div>
-          </div>
 
-          <!-- modal footer -->
-          <div class="modal-footer">
-            <button class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
-          </div>
+            <span class="d-flex justify-content-center mt-3">Don't have an account yet?&MediumSpace;
+              <a data-dismiss="modal" href="#" data-toggle="modal" data-target="#create_mc">Register here.</a>
+            </span>
 
+            <!-- just a freakin horizontal line -->
+            <hr class="bg-dark mt-4">
+
+            <span class="d-flex justify-content-center">
+              <a href="#">Forgot password?</a>
+            </span>
+
+          </form>
         </div>
+
+        <!-- Form validation -->
+        <script>
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Get the forms we want to add validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+        </script>
+
+
       </div>
 
-    <!-- modal -->
     </div>
-
-
-    <!-- Modal for signing an account -->
-    <div class="modal fade" id="signIn_mc">
-      <div class="modal-dialog">
-          <div class="modal-content">
-                  
-              <!-- modal header -->
-              <div class="modal-header">
-                  <h5 class="modal-title header-font">Someone is logging in...</h5>
-                  <button class="close" data-dismiss="modal">&times;</button>
-              </div>
-
-              <!-- modal body -->
-              <div class="modal-body">
-
-                  <form action="login_function.php" method="post"
-                          class="needs-validation
-                                  mx-auto mb-3">
-                      
-                      
-                      <!-- Forename field -->
-
-                      <div class="form-group">
-                          <label for="form_fname">Username:</label>
-                          
-                          <input type="text"
-                                  class="form-control"
-                                  id="form_uname"
-                                  placeholder="Username"
-                                  name="form_uname"
-                                  minlength="2"
-                                  maxlength="30"
-                                  required>                
-
-                      </div>
-
-                      <!-- Password field -->
-
-
-                      <div class="form-group mt-2">
-                          <label for="form_pass">Passsword:</label>
-                          <input type="password"
-                                  name="form_pass"
-                                  id="form_pass"
-                                  placeholder="Password"
-                                  class="form-control"
-                                  maxlength="30"
-                                  minlength="8"
-                                  required>
-
-                      </div>
-                      <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
-
-                      
-                      <!-- Checkbox -->
-                      
-                      
-                      <div class="row">
-                          <div class="form-group col">
-                              <input type="checkbox">
-                              <span>Remember me</span>
-                          </div>
-
-                          <!-- Register btn -->
-                          <div class="col d-flex justify-content-end">
-                              <button name="login-submit" id="login-submit" type="submit" class="btn btn-primary">Login</button>
-                          </div>
-                      
-                      </div>
-                      
-                      <span class="d-flex justify-content-center mt-3">Don't have an account yet?&MediumSpace;
-                          <a data-dismiss="modal" href="#" data-toggle="modal" data-target="#create_mc">Register here.</a>
-                      </span>
-
-                      <!-- just a freakin horizontal line -->            
-                      <hr class="bg-dark mt-4">
-
-                      <span class="d-flex justify-content-center">
-                          <a href="#">Forgot password?</a>
-                      </span>
-
-                  </form>
-              </div>
-
-              <!-- Form validation -->
-              <script>
-
-                  (function() {
-                  'use strict';
-                  window.addEventListener('load', function() {
-                  // Get the forms we want to add validation styles to
-                  var forms = document.getElementsByClassName('needs-validation');
-                  // Loop over them and prevent submission
-                  var validation = Array.prototype.filter.call(forms, function(form) {
-
-                  form.addEventListener('submit', function(event) {
-                      if (form.checkValidity() === false) {
-                      
-                      event.preventDefault();
-                      event.stopPropagation();
-                      }   
-                      form.classList.add('was-validated');
-                  }, false);
-                  });
-                  }, false);
-                  })();
-              </script>
-
-      
-              </div>
-
-          </div>
-    </div>
+  </div>
 
   </div>
 
@@ -335,37 +315,37 @@ if (isset($_GET['query'])) {
   </div>
 
   <?php
-    //if (isset($_POST['search-button'])) {
-    //$files = scandir('../Research_Studies/');
-    //this sql naman ay para ipakita ang nilalaman ng nakalimit
-    $sql = " SELECT * from researchstudy_table 
+  //if (isset($_POST['search-button'])) {
+  //$files = scandir('../Research_Studies/');
+  //this sql naman ay para ipakita ang nilalaman ng nakalimit
+  $sql = " SELECT * from researchstudy_table 
               where Title LIKE '%$search%' OR Keywords LIKE '%$search%' LIMIT $start, $limit ";
-    //this sql is for getting the number of results
-    $sql_count = " SELECT * from researchstudy_table 
+  //this sql is for getting the number of results
+  $sql_count = " SELECT * from researchstudy_table 
               where Title LIKE '%$search%' OR Keywords LIKE '%$search%'";
-    $result = mysqli_query($conn, $sql);
-    $count_result = mysqli_query($conn, $sql_count);
-    $number_pages = ceil(mysqli_num_rows($count_result) / $limit);
-    ?>
-    <!-- Main content -->
-    <div class="container-fluid">
-      <div class="row">
+  $result = mysqli_query($conn, $sql);
+  $count_result = mysqli_query($conn, $sql_count);
+  $number_pages = ceil(mysqli_num_rows($count_result) / $limit);
+  ?>
+  <!-- Main content -->
+  <div class="container-fluid">
+    <div class="row">
 
-        <!-- first column -->
-        <div class="col-sm-3 pl-4 pt-4 sm-hide">
+      <!-- first column -->
+      <div class="col-sm-3 pl-4 pt-4 sm-hide">
 
-          <p><?php if (mysqli_num_rows($count_result) > 0) {
-                echo mysqli_num_rows($count_result);
-              } else {
-                echo '0';
-              } ?> Results</p><!-- results count -->
-          <hr>
+        <p><?php if (mysqli_num_rows($count_result) > 0) {
+              echo mysqli_num_rows($count_result);
+            } else {
+              echo '0';
+            } ?> Results</p><!-- results count -->
+        <hr>
 
-          <?php
-          if (mysqli_num_rows($count_result) === 0) {
-            echo '';
-          } else {
-            echo '<!-- Filter Department -->
+        <?php
+        if (mysqli_num_rows($count_result) === 0) {
+          echo '';
+        } else {
+          echo '<!-- Filter Department -->
                 <label>Filter Department:</label>
     
                 <br>
@@ -388,200 +368,184 @@ if (isset($_GET['query'])) {
                     <input type="checkbox" id="content">
                     <label for="#content">Content</label>
                 </div>';
-          }
+        }
 
-          ?>
+        ?>
 
         <!-- first column -->
+      </div>
+
+      <!-- Content -->
+      <div class="col">
+
+        <div class="d-flex align-items-center justify-content-center pt-2 sm-hide">
+
+
+          <!-- Use the 'active class' to change the btn color -->
+          <?php if (mysqli_num_rows($count_result) > 0) { ?>
+            <div class="btn-group text-dark">
+
+              <button class="btn btn-outline-dark sm-btn-font-size active">Most relevant</button>
+
+              <button class="btn btn-outline-dark sm-btn-font-size">Most reads</button>
+
+              <button class="btn btn-outline-dark sm-btn-font-size">Most downloads</button>
+            </div>
+          <?php } else {
+            echo '';
+          } ?>
+
         </div>
+        <hr>
 
-        <!-- Content -->
-        <div class="col">
-
-          <div class="d-flex align-items-center justify-content-center pt-2 sm-hide">
-
-
-            <!-- Use the 'active class' to change the btn color -->
-            <?php if (mysqli_num_rows($count_result) > 0) { ?>
-              <div class="btn-group text-dark">
-
-                <button class="btn btn-outline-dark sm-btn-font-size active">Most relevant</button>
-
-                <button class="btn btn-outline-dark sm-btn-font-size">Most reads</button>
-
-                <button class="btn btn-outline-dark sm-btn-font-size">Most downloads</button>
-              </div>
-            <?php } else {
-              echo '';
-            } ?>
-
-          </div>
-          <hr>
-
-          <!-- Here is the whole research study
+        <!-- Here is the whole research study
                 This part includes the research study details
                     (titles, authors, abstract, view pdf, download file,
                     and statistics for reads and downloads)-->
 
-          <?php
-          if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {
-          ?>
-              <div class="cards hBg mt-n3
+        <?php
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_array($result)) {
+        ?>
+            <div class="cards hBg mt-n3
                     border border-left-0
                             border-right-0
                             border-top-0
                             border-semilightblue">
 
-                <div class="card-body">
+              <div class="card-body">
 
 
-                  <!-- Research studies information -->
-                  <div class="row">
-                    <div class="col-9">
-                      <h4 class="sm-body-font-size"><?php echo $row["Title"] ?></h4><!-- Research title -->
+                <!-- Research studies information -->
+                <div class="row">
+                  <div class="col-9">
+                    <h4 class="sm-body-font-size"><?php echo $row["Title"] ?></h4><!-- Research title -->
 
-                      <!-- Author name -->
-                      <a href="#" class="cLink"><?php echo $row["Author"] ?></a>
+                    <!-- Author name -->
+                    <a href="#" class="cLink"><?php echo $row["Author"] ?></a>
 
-                      <p>The abstract details will be put in here</p>
+                    <p>The abstract details will be put in here</p>
 
-                      <!-- Statistics for small media -->
-                      <p><small class="sm-show-stat">5 Views | 5 Downloads</small></p>
+                    <!-- Statistics for small media -->
+                    <p><small class="sm-show-stat">5 Views | 5 Downloads</small></p>
 
 
-                      <!-- show this when a user is logged in -->
-                      <?php if (isset($_SESSION['user_id'])) {?>
+                    <!-- show this when a user is logged in -->
+                    <?php if (isset($_SESSION['user_id'])) { ?>
 
-                          <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" 
-                          onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')" 
-                          class="fa fa-download btn btn-outline-primary sm-btn-font-size cLink"> Download</a><!-- Download button -->
-                        
-                          <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" 
-                          onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')" 
-                          class="fa fa-file btn btn-outline-primary sm-btn-font-size cLink"> View PDF</a><!-- View button -->
+                      <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')" class="fa fa-download btn btn-outline-primary sm-btn-font-size cLink"> Download</a><!-- Download button -->
 
-                      <?php }else { ?>
-                        
+                      <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')" class="fa fa-file btn btn-outline-primary sm-btn-font-size cLink"> View PDF</a><!-- View button -->
+
+                    <?php } else { ?>
+
                       <!-- show this when user isn't logged in -->
 
-                          <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" 
-                          onclick="needToLoginDownload()" 
-                          class="fa fa-download btn btn-outline-primary sm-btn-font-size cLink"> Download</a><!-- Download button -->
-                        
-                          <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" 
-                          onclick="needToLoginView()" 
-                          class="fa fa-file btn btn-outline-primary sm-btn-font-size cLink"> View PDF</a><!-- View button -->
+                      <a id="view_href_<?php echo $row['RS_ID'] ?>" type="button" onclick="needToLoginDownload()" class="fa fa-download btn btn-outline-primary sm-btn-font-size cLink"> Download</a><!-- Download button -->
 
-                      <?php } ?>
+                      <a id="download_href_<?php echo $row['RS_ID'] ?>" type="button" onclick="needToLoginView()" class="fa fa-file btn btn-outline-primary sm-btn-font-size cLink"> View PDF</a><!-- View button -->
+
+                    <?php } ?>
 
 
 
-                      <!-- Modal -->
-                      <div class="modal fade" id="cModalContent" role="dialog">
-                        <div class="modal-dialog modal-dialog-scrollable">
+                    <!-- Modal -->
+                    <div class="modal fade" id="cModalContent_<?php echo $row['RS_ID']; ?>" role="dialog">
+                      <div class="modal-dialog modal-dialog-scrollable">
 
-                          <!-- Modal header -->
-                          <div class="modal-content">
-                            <div class="modal-title">
+                        <!-- Modal header -->
+                        <div class="modal-content">
+                          <div class="modal-title">
 
-                              <div class="modal-header">
-                                <div class="btn-group">
-                                  <!-- Download PDF (logged in)-->
-                                  <?php if (isset($_SESSION['user_id'])) {?>
-                                  <button type="button" 
-                                  onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')"
-                                  class="btn btn-outline-dark fa fa-download sm-btn-font-size"> Download</button><!-- Download button -->
-                                  
+                            <div class="modal-header">
+                              <div class="btn-group">
+                                <!-- Download PDF (logged in)-->
+                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                  <button type="button" onclick="addDownload(<?php echo $row['RS_ID'] ?>,'download.php?file=<?php echo $row['File'] ?>')" class="btn btn-outline-dark fa fa-download sm-btn-font-size"> Download</button><!-- Download button -->
+
                                   <!-- View PDF (logged in)-->
-                                  <button type="submit" 
-                                  onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')"
-                                  class="btn btn-outline-dark fa fa-file sm-btn-font-size"> View PDF</button><!-- View button -->
-                                  <?php } else {?>
+                                  <button type="submit" onclick="addView(<?php echo $row['RS_ID'] ?>,'../Research_Studies/<?php echo $row['File'] ?>')" class="btn btn-outline-dark fa fa-file sm-btn-font-size"> View PDF</button><!-- View button -->
+                                <?php } else { ?>
                                   <!-- Download PDF -->
-                                  <button type="button" 
-                                  onclick="needToLoginDownload()"
-                                  class="btn btn-outline-dark fa fa-download sm-btn-font-size"> Download</button><!-- Download button -->
-                                  
+                                  <button type="button" onclick="needToLoginDownload()" class="btn btn-outline-dark fa fa-download sm-btn-font-size"> Download</button><!-- Download button -->
+
                                   <!-- View PDF -->
-                                  <button type="submit" 
-                                  onclick="needToLoginView()"
-                                  class="btn btn-outline-dark fa fa-file sm-btn-font-size"> View PDF</button><!-- View button -->
-                                  <?php } ?>
-                                  
-                                </div>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <button type="submit" onclick="needToLoginView()" class="btn btn-outline-dark fa fa-file sm-btn-font-size"> View PDF</button><!-- View button -->
+                                <?php } ?>
+
                               </div>
-
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-
-                            <!-- Modal details -->
-
-                            <div class="modal-body">
-                              <!-- Make the title color black -->
-                              <!-- Make the hover color blue -->
-
-                              <div class="cfont cs-2"><?php echo $row['Title'] ?></div><!-- research title -->
-                              <br>
-                              <div><?php echo $row['Author'] ?></div><!-- author name -->
-
-                              <hr class="bg-muted">
-
-                              <p class="text-uppercase">Abstract</p>
-
-                              <p><?php echo $row['Abstract'] ?></p><!-- research abstract -->
-
-                            </div>
-
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
-
-                            </div>
-
-
-
 
                           </div>
+
+                          <!-- Modal details -->
+
+                          <div class="modal-body">
+                            <!-- Make the title color black -->
+                            <!-- Make the hover color blue -->
+
+                            <div class="cfont cs-2"><?php echo $row['Title'] ?></div><!-- research title -->
+                            <br>
+                            <div><?php echo $row['Author'] ?></div><!-- author name -->
+
+                            <hr class="bg-muted">
+
+                            <p class="text-uppercase">Abstract</p>
+
+                            <p><?php echo $row['Abstract'] ?></p><!-- research abstract -->
+
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger sm-btn-font-size" data-dismiss="modal">Close</button>
+
+                          </div>
+
+
+
+
                         </div>
                       </div>
+                    </div>
 
-                      <!-- Mini tab for short details
+                    <!-- Mini tab for short details
                         This <a> tag represent the button for the whole research study -->
 
-                      <a href="#cModalContent" class="stretched-link" data-toggle="modal" data-backdrop="static"></a>
-                    </div>
+                    <a href="#cModalContent_<?php echo $row['RS_ID']; ?>" class="stretched-link" data-toggle="modal" data-backdrop="static"></a>
+                  </div>
 
-                    <!-- Statistics for large media -->
+                  <!-- Statistics for large media -->
 
-                    <div class="col-3 sm-hide-stat">
-                      <div class=" pt-2 text-ash">
-                        <p id="viewCounts_<?php echo $row['RS_ID'] ?>" class="text-center smaller"><?php if ($row['Views'] === 0) {
-                                                                                                      echo '0';
-                                                                                                    } else {
-                                                                                                      echo $row['Views'];
-                                                                                                    } ?><br>Readers</p><!-- count of views -->
-
-                      </div>
-
-                      <div class="pt-2 text-ash">
-                        <p id="downloadCounts_<?php echo $row['RS_ID'] ?>" class="text-center smaller"><?php if ($row['Downloads'] === 0) {
-                                                                                                          echo '0';
-                                                                                                        } else {
-                                                                                                          echo $row['Downloads'];
-                                                                                                        } ?><br>Downloads</p><!-- count of downloads -->
-                      </div>
-
+                  <div class="col-3 sm-hide-stat">
+                    <div class=" pt-2 text-ash">
+                      <p id="viewCounts_<?php echo $row['RS_ID'] ?>" class="text-center smaller"><?php if ($row['Views'] === 0) {
+                                                                                                    echo '0';
+                                                                                                  } else {
+                                                                                                    echo $row['Views'];
+                                                                                                  } ?><br>Readers</p><!-- count of views -->
 
                     </div>
 
-                  </div> <!-- End of research studies information -->
+                    <div class="pt-2 text-ash">
+                      <p id="downloadCounts_<?php echo $row['RS_ID'] ?>" class="text-center smaller"><?php if ($row['Downloads'] === 0) {
+                                                                                                        echo '0';
+                                                                                                      } else {
+                                                                                                        echo $row['Downloads'];
+                                                                                                      } ?><br>Downloads</p><!-- count of downloads -->
+                    </div>
 
 
-                </div>
+                  </div>
 
+                </div> <!-- End of research studies information -->
 
 
               </div>
+
+
+
+            </div>
         <?php
           }
         } else {
@@ -618,41 +582,41 @@ if (isset($_GET['query'])) {
   </div>
 
 
-<!-- Footer -->
+  <!-- Footer -->
 
-<footer class="border-top-2 pb-4 mt-footer">
+  <footer class="border-top-2 pb-4 mt-footer">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
-        We use cookies to help provide and enhance our service and tailor content.<br>
-        By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p style="margin-top: -1%">Copyright © 2020 Research DB. All rights reserved.<br>
+            We use cookies to help provide and enhance our service and tailor content.<br>
+            By continuing you, agree to our <a href="#">Cookies Settings</a>.</p><br>
 
-      <div style="margin-top: -4%;">
-        <a href="#">Copyright</a>
-        <span class="px-3">|</span>
+          <div style="margin-top: -4%;">
+            <a href="#">Copyright</a>
+            <span class="px-3">|</span>
 
-        <a href="#">Terms of Use</a>
-        <span class="px-3">|</span>
+            <a href="#">Terms of Use</a>
+            <span class="px-3">|</span>
 
-        <a href="#">Privacy Policy</a>
+            <a href="#">Privacy Policy</a>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 l-mt sm-mt">
+          <span>Follow us on:</span><br>
+
+          <span class="fa fa-facebook-official sl"></span>
+          <span class="fa fa-instagram sl px-3"></span>
+          <span class="fa fa-twitter-square sl"></span>
+        </div>
 
       </div>
     </div>
 
-    <div class="col-md-4 l-mt sm-mt">
-      <span>Follow us on:</span><br>
-
-      <span class="fa fa-facebook-official sl"></span>
-      <span class="fa fa-instagram sl px-3"></span>
-      <span class="fa fa-twitter-square sl"></span>
-    </div>
-
-  </div>
-</div>
-
-</footer>
+  </footer>
 
 
   <!-- Sweetalert js cdn -->
@@ -668,34 +632,8 @@ if (isset($_GET['query'])) {
         }
       });
     });
-
-    //add count for views
-    function addView(RS_ID, url) {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("viewCounts_" + RS_ID).innerHTML = this.responseText;
-        }
-      };
-      //console.log(url);
-      xmlhttp.open("GET", "action.php?addViews=" + RS_ID, true);
-      xmlhttp.send();
-      window.open(url+'#toolbar=0','_blank', 'location=no');
-    }
-
-    //add count for downloads
-    function addDownload(RS_ID, url) {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("downloadCounts_" + RS_ID).innerHTML = this.responseText;
-        }
-      };
-      xmlhttp.open("GET", "action.php?addDownloads=" + RS_ID, true);
-      xmlhttp.send();
-      window.open(url);
-    }
   </script>
+  <script src="../js/addCount.js"></script>
   <script src="../js/needToLogin.js"></script>
 </body>
 
