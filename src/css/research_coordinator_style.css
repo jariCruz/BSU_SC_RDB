@@ -78,3 +78,16 @@ flex-wrap: unset;
 
 display: none;
 }
+
+/* For links inside stretched-link */
+.cards .cLink {
+  z-index: 2;
+  position: relative;
+
+}
+
+/* Hoverable background color */
+.hBg:hover {
+  background-color: #e6fff7;
+
+}
